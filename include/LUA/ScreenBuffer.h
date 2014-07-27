@@ -33,7 +33,9 @@ namespace tge
       unsigned int y = 0;
       std::wstring text;
       DisplayOptions dOpts(WHITE, CLEAR);
-
+      bool rawFormat = false;
+      bool wrapText = false;
+      int maxLength = 0;
 
       lua_pushnil(L);
 
@@ -56,11 +58,25 @@ namespace tge
         else if (key == "text") {
           text = str::to_wcs(lua_tostring(L, -1));
         }
+        else if (key == "raw" || key == "asIs") {
+          rawFormat = lua_toboolean(L, -1);
+        }
+        else if (key == "wrap" || key == "lineWrap") {
+          wrapText = lua_toboolean(L, -1);
+        }
+        else if (key == "length" || key == "maxLength") {
+          maxLength = lua_tointeger(L, -1);
+        }
 
         lua_pop(L, 1);
       }
 
-      obj->print(x, y, text, dOpts);
+      int flags = 0;
+
+      if (rawFormat) { flags |= TEXT_AS_IS; }
+      if (wrapText) { flags |= TEXT_WRAP; }
+
+      obj->print(x, y, text, dOpts, flags, maxLength);
 
       return 0;
     }
