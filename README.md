@@ -2,6 +2,7 @@ Roadmap
 ===
 
 - Sound
+- Sprites
 - File system
-- More display customization
+- Display customization
 - Networking (HTTP, WebSockets)
