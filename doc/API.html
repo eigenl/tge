@@ -1,0 +1,372 @@
+<html>
+<head>
+<title>TGE API</title>
+</head>
+<body style="background:#fdfdfd;font-family:Verdana;line-height: 1.6em;">
+
+<h1>Globals</h1>
+
+<h2>Core</h2>
+
+<b>instance()</b>
+<i>Returns the underlying C pointer.</i>
+<br />
+<b>load(</b>filePath<b>)</b>
+<i>For including LUA scripts. Argument <u>filePath</u> should be relative to "scripts/"</i>
+<br />
+<b>setWindowTitle(</b>title<b>)</b>
+<i>Set the application window title</i>
+<br />
+<b>exit(</b>code<b>)</b>
+<i>Exit the application with return code.</i>
+
+<h2>UI</h2>
+
+<b>instance()</b>
+<i>Returns the underlying C pointer.</i>
+
+<br />
+
+<b>showMessageBox(</b>message<b>)</b>
+<i>Shows a default message box with the given message.</i>
+
+<br />
+
+<b>unfocus()</b>
+<i>Unfocus any text fields.</i>
+
+<br/>
+
+<b>createConsole(</b>...<b>)</b>
+<i>Creates a console element. Arguments are passed in a LUA table. Possible arguments are:</i>
+<p style="margin-left:3.0em; font-size:0.8em; border:1px solid #808080;width:30%;padding:10px;">
+	<b>x</b> (int) <i>Top left column of the console</i>
+	<br />
+	<b>y</b> (int) <i>Top left row of the console</i>
+	<br />
+	<b>width</b> (int) <i>Width of the console in screen columns</i>
+	<br />
+	<b>height</b> (int) <i>Height of the console in screen rows</i>
+</p>
+
+<br />
+
+<b>createWindow(</b>...<b>)</b>
+<i>Creates a window widget. Arguments are passed in a LUA table. Possible arguments are:</i>
+<p style="margin-left:3.0em; font-size:0.8em; border:1px solid #808080;width:30%;padding:10px;">
+	<b>parent</b> (ptr) <i>C pointer of the parent widget. Default: <u>null</u> which means the widget is added to UI root.</i>
+	<br />
+	<b>x</b> (int) <i>Top left column of the window relative to parent</i>
+	<br />
+	<b>y</b> (int) <i>Top left row of the window relative to parent</i>
+	<br />
+	<b>width</b> (int) <i>Width of the window in screen columns</i>
+	<br />
+	<b>height</b> (int) <i>Height of the window in screen rows</i>
+	<br />
+	<b>color</b> (int) <i>Color of the window border. Default: <u>LightBlue</u></i>
+	<br />
+	<b>background</b> (int) <i>Fill color of the window. Default: <u>Blue</u></i>
+	<br />
+	<b>showDismissText</b> (bool) <i>Show the default dismiss message in the bottom-right corner of the window. Default: <u>false</u></i>
+	<br />
+	<b>shadow</b> (bool) <i>Enable to disable the drop shadow. Default: <u>false</u></i>
+	<br />
+	<b>closable</b> (bool) <i>Specifies if the window is clossable by pressing 'Return' or 'ESC'. Default: <u>false</u></i>
+</p>
+
+<br />
+
+<b>createTextField(</b>...<b>)</b>
+<i>Creates a text field widget. Arguments are passed in a LUA table. Possible arguments are:</i>
+<p style="margin-left:3.0em; font-size:0.8em; border:1px solid #808080;width:30%;padding:10px;">
+	<b>parent</b> (ptr) <i>C pointer of the parent widget. Default: <u>null</u> which means the widget is added to UI root.</i>
+	<br />
+	<b>x</b> (int) <i>Top left column of the text field relative to parent</i>
+	<br />
+	<b>y</b> (int) <i>Top left row of the text field relative to parent</i>
+	<br />
+	<b>width</b> (int) <i>Width of the text field in screen columns</i>
+	<br />
+	<b>color</b> (int) <i>Color of the input text. Default: <u>White</u></i>
+	<br />
+	<b>background</b> (int) <i>Background color of the text field. Default: <u>Black</u></i>
+	<br />
+	<b>inputPrefix</b> (string) <i>Prefix of the text field. Could be something like "> ". Default: <u>None</u></i>
+	<br />
+	<b>hidden</b> (bool) <i>When set to true the input works like a password entry field. Default: <u>false</u></i>
+	<br />
+	<b>mainInput</b> (bool) <i>Should the focus automatically revert to this input after all windows have been closed and no other text field has focus. Default: <u>false</u></i>
+</p>
+
+<br />
+
+<b>createLabel(</b>...<b>)</b>
+<i>Creates a text field widget. Arguments are passed in a LUA table. Possible arguments are:</i>
+<p style="margin-left:3.0em; font-size:0.8em; border:1px solid #808080;width:30%;padding:10px;">
+	<b>parent</b> (ptr) <i>C pointer of the parent widget. Default: <u>null</u> which means the widget is added to UI root.</i>
+	<br />
+	<b>x</b> (int) <i>Top left column of the label relative to parent</i>
+	<br />
+	<b>y</b> (int) <i>Top left row of the label relative to parent</i>
+	<br />
+	<b>width</b> (int) <i>Maximum width of the label in screen columns. Text is wrapped when the value is > 0.</i>
+	<br />
+	<b>text</b> (string) <i>Contents of this label.</i>
+	<br />
+	<b>color</b> (int) <i>Color of the text. Default: <u>White</u></i>
+	<br />
+	<b>background</b> (int) <i>Background color of the label. Default: <u>Clear</u></i>
+</p>
+
+<h2>Screen</h2>
+
+<b>instance()</b>
+<i>Returns the underlying C pointer.</i>
+
+<br />
+
+<b>clear()</b>
+<i>Clears the whole screen buffer.</i>
+
+<br />
+
+<b>print(</b>...<b>)</b>
+<i>Prints a string on screen. Arguments are passed in a LUA table. Possible arguments are:</i>
+<p style="margin-left:3.0em; font-size:0.8em; border:1px solid #808080;width:30%;padding:10px;">
+	<b>x</b> (int) <i>Top left column of the text</i>
+	<br />
+	<b>y</b> (int) <i>Top left row of the text</i>
+	<br />
+	<b>text</b> (string) <i>Text to print.</i>
+	<br />
+	<b>color</b> (int) <i>Color of the text. Default: <u>White</u></i>
+	<br />
+	<b>background</b> (int) <i>Background color of the text. Default: <u>Clear</u></i>
+</p>
+
+<br />
+
+<b>fillRow(</b>...<b>)</b>
+<i>Fills the background of a whole screen row. Arguments are passed in a LUA table. Possible arguments are:</i>
+<p style="margin-left:3.0em; font-size:0.8em; border:1px solid #808080;width:30%;padding:10px;">
+	<b>y</b> (int) <i>Row to fill</i>
+	<br />
+	<b>color</b> (int) <i>Fill color. Default: <u>Blue</u></i>
+</p>
+
+<br />
+
+<b>fillRect(</b>...<b>)</b>
+<i>Fills the background of a given rectangle. Arguments are passed in a LUA table. Possible arguments are:</i>
+<p style="margin-left:3.0em; font-size:0.8em; border:1px solid #808080;width:30%;padding:10px;">
+	<b>x</b> (int) <i>Top left column of the rectangle</i>
+	<br />
+	<b>y</b> (int) <i>Top left row of the rectangle</i>
+	<br />
+	<b>width</b> (int) <i>Width of the rectangle</i>
+	<br />
+	<b>height</b> (int) <i>Height of the rectangle</i>
+	<br />
+	<b>color</b> (int) <i>Fill color. Default: <u>Gray</u></i>
+</p>
+
+<br />
+
+<b>clearRect(</b>...<b>)</b>
+<i>Clears the screen buffer in a given rectangle. Arguments are passed in a LUA table. Possible arguments are:</i>
+<p style="margin-left:3.0em; font-size:0.8em; border:1px solid #808080;width:30%;padding:10px;">
+	<b>x</b> (int) <i>Top left column of the rectangle</i>
+	<br />
+	<b>y</b> (int) <i>Top left row of the rectangle</i>
+	<br />
+	<b>width</b> (int) <i>Width of the rectangle</i>
+	<br />
+	<b>height</b> (int) <i>Height of the rectangle</i>
+	<br />
+	<b>background</b> (int) <i>Clear color. Default: <u>Black</u> Passing <u>Clear</u> color only clears the foreground of the buffer leaving background colors intact.</i>
+</p>
+
+<br />
+
+<b>drawBorder(</b>...<b>)</b>
+<i>Draws a bordered box in a given rectangle. Arguments are passed in a LUA table. Possible arguments are:</i>
+<p style="margin-left:3.0em; font-size:0.8em; border:1px solid #808080;width:30%;padding:10px;">
+	<b>x</b> (int) <i>Top left column of the rectangle</i>
+	<br />
+	<b>y</b> (int) <i>Top left row of the rectangle</i>
+	<br />
+	<b>width</b> (int) <i>Width of the rectangle</i>
+	<br />
+	<b>height</b> (int) <i>Height of the rectangle</i>
+	<br />
+	<b>fill</b> (bool) <i>Fill the box. Default: <u>false</u></i>
+	<br />
+	<b>shadow</b> (bool) <i>Box draws a drop shadow. Default: <u>false</u></i>
+	<br />
+	<b>color</b> (int) <i>Border color. Default: <u>Blue</u></i>
+	<br />
+	<b>background</b> (int) <i>Fill color of the box. Default: <u>Clear</u> Only used when fill = true</i>
+</p>
+
+<br />
+
+<b>put(</b>...<b>)</b>
+<i>Puts a single character on screen. Arguments are passed in a LUA table. Possible arguments are:</i>
+<p style="margin-left:3.0em; font-size:0.8em; border:1px solid #808080;width:30%;padding:10px;">
+	<b>x</b> (int) <i>Column of the character</i>
+	<br />
+	<b>y</b> (int) <i>Row of the character</i>
+	<br />
+	<b>color</b> (int) <i>Color of the character. Default: <u>White</u></i>
+	<br />
+	<b>background</b> (int) <i>Background color of the character. Default: <u>Clear</u></i>
+	<br />
+	<b>value</b> (string) <i>1 character string to put on screen. If a longer string is passed only the first character is used.</i>
+</p>
+
+<h2>Color</h2>
+
+List of available colors:
+
+<br/>
+
+<ul>
+	<li>Color.Clear</li>
+	<li>Color.Red</li>
+	<li>Color.Brown</li>
+	<li>Color.Green</li>
+	<li>Color.Cyan</li>
+	<li>Color.Blue</li>
+	<li>Color.Magneta</li>
+	<li>Color.Gray</li>
+	<li>Color.LightRed</li>
+	<li>Color.Yellow</li>
+	<li>Color.LightGreen</li>
+	<li>Color.LightCyan</li>
+	<li>Color.LightBlue</li>
+	<li>Color.LightMagneta</li>
+	<li>Color.LightGray</li>
+	<li>Color.White</li>
+	<li>Color.Black</li>
+</ul>
+
+
+<h1>Objects</h1>
+
+<h2>LuaWindow</h2>
+
+<b>instance()</b>
+<i>Returns the underlying C pointer.</i>
+
+<br />
+
+<b>close()</b>
+<i>Closes and deletes the window.</i>
+
+<br/>
+
+<b>onClose(</b>callbackFunction<b>)</b>
+<i>LUA function that's called when the window closes. Example:</i>
+<p style="margin-left:3.0em; font-size:0.8em; border:1px solid #808080;width:30%;padding:10px;background:#fdbfef;">
+myWindow.onClose(function(cancelled)<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;print("The window has been closed!")
+<br/>
+end)<br/>
+</p>
+<p style="margin-left:3.0em; font-size:0.8em;">
+<u>cancelled</u> is a boolean argument telling if the window was closed by pressing 'Esc' (true) or not (false).
+</p>
+
+
+<h2>LuaTextField</h2>
+
+<b>instance()</b>
+<i>Returns the underlying C pointer.</i>
+
+<br />
+
+<b>focus()</b>
+<i>Set input focus to this text field.</i>
+
+<br/>
+
+<b>unfocus()</b>
+<i>Remove focus from this text field.</i>
+
+<br/>
+
+<b>clear()</b>
+<i>Clears the input text.</i>
+
+<br/>
+
+<b>getText()</b> (string)
+<i>Return current input text.</i>
+
+<br/>
+
+<b>setText(</b>text<b>)</b>
+<i>Set input text.</i>
+
+<br/>
+
+<b>setInputPrefix(</b>text<b>)</b>
+<i>Set the prefix of the text field.</i>
+
+<br/>
+
+
+<b>onEnter(</b>callbackFunction<b>)</b>
+<i>LUA function that's called when text field is dismissed by pressing 'Return'. Example:</i>
+<p style="margin-left:3.0em; font-size:0.8em; border:1px solid #808080;width:30%;padding:10px;background:#fdbfef;">
+myTextField.onEnter(function(text)<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;print("Text entered:", text)
+<br/>
+end)<br/>
+</p>
+
+<h2>LuaLabel</h2>
+
+<h2>Console</h2>
+
+<p style="background:#abfebd;font-size:0.8em; width:30%; padding:10px; line-height: 1.3em;">
+Consoles display and wrap text. When the content overflows the console scrolls. Console is not a UI element so it doesn't have background color or borders. Such an effect is achieved by drawing the background using different draw calls: a filled drawBorder() for example so that it matches the size of the console.
+</p>
+
+<b>instance()</b>
+<i>Returns the underlying C pointer.</i>
+
+<br />
+
+<b>setActive(</b>active<b>)</b>
+<i>Set the console active/inactive. Consoles are inactive by default after creation.</i>
+
+<br/>
+
+<b>isActive()</b> (bool)
+
+<br/>
+
+<b>clear()</b>
+<i>Clears the content of the console.</i>
+
+<br />
+
+<b>insertEmptyLine()</b>
+<i>Inserts an empty line in the console.</i>
+
+<br />
+
+<b>insert(</b>...<b>)</b>
+<i>Inserts a line of text in the console. Arguments are passed in a LUA table. Possible arguments are:</i>
+<p style="margin-left:3.0em; font-size:0.8em; border:1px solid #808080;width:30%;padding:10px;">
+	<b>text</b> (text) <i>Text to add. May span several lines as the text is wrapped.</i>
+	<br />
+	<b>color</b> (int) <i>Color of the text. Default: <u>White</u></i>
+	<br />
+	<b>appendEmpty</b> (bool) <i>Specifies whether an empty line is added after this line. Default: <u>true</u></i>
+</p>
+
+</body>
+</html>
