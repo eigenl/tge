@@ -1,0 +1,26 @@
+#ifndef COLORS_H
+#define COLORS_H
+
+enum Colors
+{
+  CLEAR = 0,
+  RED = 1,
+  BROWN,
+  GREEN,
+  CYAN,
+  BLUE,
+  MAGNETA,
+  LIGHT_GRAY,
+  GRAY,
+  LIGHT_RED,
+  YELLOW,
+  LIGHT_GREEN,
+  LIGHT_CYAN,
+  LIGHT_BLUE,
+  LIGHT_MAGNETA,
+  WHITE,
+  BLACK,
+  CLEAR2
+};
+
+#endif

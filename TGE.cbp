@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="Text Based Multiplayer Shooter" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Release">
+				<Option output="bin/TGE" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="bin/" />
+				<Option object_output="obj/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Option use_console_runner="0" />
+				<Compiler>
+					<Add directory="include" />
+				</Compiler>
+				<Linker>
+					<Add library="libs\sfml2-win\lib\libsfml-audio.a" />
+					<Add library="libs\sfml2-win\lib\libsfml-graphics.a" />
+					<Add library="libs\sfml2-win\lib\libsfml-main.a" />
+					<Add library="libs\sfml2-win\lib\libsfml-network.a" />
+					<Add library="libs\sfml2-win\lib\libsfml-system.a" />
+					<Add library="libs\sfml2-win\lib\libsfml-window.a" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-std=c++11" />
+			<Add option="-Wall" />
+			<Add option="-D_WIN32_WINNT=0x0501 -DWINVER=0x0501" />
+			<Add directory="libs/sfml2-win/include" />
+			<Add directory="libs/" />
+			<Add directory="include" />
+		</Compiler>
+		<Unit filename="include/Colors.h" />
+		<Unit filename="include/Console.h" />
+		<Unit filename="include/Core.h" />
+		<Unit filename="include/Game.h" />
+		<Unit filename="include/InputHandler.h" />
+		<Unit filename="include/LUAImpl.h" />
+		<Unit filename="include/LUA/Console.h" />
+		<Unit filename="include/LUA/Core.h" />
+		<Unit filename="include/LUA/ScreenBuffer.h" />
+		<Unit filename="include/LUA/TextField.h" />
+		<Unit filename="include/LUA/UI.h" />
+		<Unit filename="include/Label.h" />
+		<Unit filename="include/Prompt.h" />
+		<Unit filename="include/Renderer.h" />
+		<Unit filename="include/ResourceFolder.h" />
+		<Unit filename="include/ScreenBuffer.h" />
+		<Unit filename="include/ScriptingInterface.h" />
+		<Unit filename="include/Shared.h" />
+		<Unit filename="include/TextField.h" />
+		<Unit filename="include/UI.h" />
+		<Unit filename="include/UIWidget.h" />
+		<Unit filename="include/Utils.h" />
+		<Unit filename="include/Window.h" />
+		<Unit filename="include/lunar.h" />
+		<Unit filename="libs/lua/lapi.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="libs/lua/lapi.h" />
+		<Unit filename="libs/lua/lauxlib.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="libs/lua/lauxlib.h" />
+		<Unit filename="libs/lua/lbaselib.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="libs/lua/lbitlib.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="libs/lua/lcode.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="libs/lua/lcode.h" />
+		<Unit filename="libs/lua/lcorolib.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="libs/lua/lctype.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="libs/lua/lctype.h" />
+		<Unit filename="libs/lua/ldblib.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="libs/lua/ldebug.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="libs/lua/ldebug.h" />
+		<Unit filename="libs/lua/ldo.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="libs/lua/ldo.h" />
+		<Unit filename="libs/lua/ldump.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="libs/lua/lfunc.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="libs/lua/lfunc.h" />
+		<Unit filename="libs/lua/lgc.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="libs/lua/lgc.h" />
+		<Unit filename="libs/lua/linit.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="libs/lua/liolib.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="libs/lua/llex.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="libs/lua/llex.h" />
+		<Unit filename="libs/lua/llimits.h" />
+		<Unit filename="libs/lua/lmathlib.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="libs/lua/lmem.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="libs/lua/lmem.h" />
+		<Unit filename="libs/lua/loadlib.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="libs/lua/lobject.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="libs/lua/lobject.h" />
+		<Unit filename="libs/lua/lopcodes.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="libs/lua/lopcodes.h" />
+		<Unit filename="libs/lua/loslib.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="libs/lua/lparser.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="libs/lua/lparser.h" />
+		<Unit filename="libs/lua/lstate.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="libs/lua/lstate.h" />
+		<Unit filename="libs/lua/lstring.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="libs/lua/lstring.h" />
+		<Unit filename="libs/lua/lstrlib.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="libs/lua/ltable.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="libs/lua/ltable.h" />
+		<Unit filename="libs/lua/ltablib.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="libs/lua/ltm.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="libs/lua/ltm.h" />
+		<Unit filename="libs/lua/lua.h" />
+		<Unit filename="libs/lua/lua.hpp" />
+		<Unit filename="libs/lua/luaconf.h" />
+		<Unit filename="libs/lua/lualib.h" />
+		<Unit filename="libs/lua/lundump.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="libs/lua/lundump.h" />
+		<Unit filename="libs/lua/lvm.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="libs/lua/lvm.h" />
+		<Unit filename="libs/lua/lzio.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="libs/lua/lzio.h" />
+		<Unit filename="libs/strutil/strutil.cpp" />
+		<Unit filename="libs/strutil/strutil.h" />
+		<Unit filename="src/Console.cpp" />
+		<Unit filename="src/Core.cpp" />
+		<Unit filename="src/Game.cpp" />
+		<Unit filename="src/InputHandler.cpp" />
+		<Unit filename="src/LUAImpl.cpp" />
+		<Unit filename="src/Label.cpp" />
+		<Unit filename="src/Prompt.cpp" />
+		<Unit filename="src/Renderer.cpp" />
+		<Unit filename="src/ScreenBuffer.cpp" />
+		<Unit filename="src/ScriptingInterface.cpp" />
+		<Unit filename="src/TextField.cpp" />
+		<Unit filename="src/UI.cpp" />
+		<Unit filename="src/UIWidget.cpp" />
+		<Unit filename="src/Utils.cpp" />
+		<Unit filename="src/Window.cpp" />
+		<Unit filename="src/main.cpp" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+			<lib_finder disable_auto="1" />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
