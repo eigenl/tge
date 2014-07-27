@@ -4,7 +4,6 @@
 #include "Window.h"
 #include "Label.h"
 #include "TextField.h"
-#include "Prompt.h"
 #include "Renderer.h"
 #include "ScriptingInterface.h"
 

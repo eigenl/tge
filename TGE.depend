@@ -433,7 +433,7 @@
 	<vector>
 	<string>
 
-1406457535 c:\users\eigen\gamedev\tge\include\shared.h
+1406490918 c:\users\eigen\gamedev\tge\include\shared.h
 	"Colors.h"
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
@@ -455,12 +455,11 @@
 	<string>
 	"Shared.h"
 
-1406468829 source:c:\users\eigen\gamedev\tge\src\core.cpp
+1406490891 source:c:\users\eigen\gamedev\tge\src\core.cpp
 	"Core.h"
 	"Renderer.h"
 	"InputHandler.h"
 	"ScreenBuffer.h"
-	"Prompt.h"
 	"Console.h"
 	"Utils.h"
 	"UI.h"
@@ -565,10 +564,9 @@
 	<stdio.h>
 	<math.h>
 
-1406459992 source:c:\users\eigen\gamedev\tge\src\screenbuffer.cpp
+1406490903 source:c:\users\eigen\gamedev\tge\src\screenbuffer.cpp
 	"ScreenBuffer.h"
 	"Core.h"
-	"Prompt.h"
 	"Colors.h"
 	"Renderer.h"
 	<stdio.h>
@@ -580,14 +578,13 @@
 	"Renderer.h"
 	"ScreenBuffer.h"
 
-1406468930 source:c:\users\eigen\gamedev\tge\src\ui.cpp
+1406490909 source:c:\users\eigen\gamedev\tge\src\ui.cpp
 	"UI.h"
 	"Core.h"
 	"Console.h"
 	"Window.h"
 	"Label.h"
 	"TextField.h"
-	"Prompt.h"
 	"Renderer.h"
 	"ScriptingInterface.h"
 

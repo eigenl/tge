@@ -1,6 +1,5 @@
 #include "ScreenBuffer.h"
 #include "Core.h"
-#include "Prompt.h"
 #include "Colors.h"
 #include "Renderer.h"
 

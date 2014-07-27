@@ -2,7 +2,6 @@
 #include "Renderer.h"
 #include "InputHandler.h"
 #include "ScreenBuffer.h"
-#include "Prompt.h"
 #include "Console.h"
 #include "Utils.h"
 #include "UI.h"

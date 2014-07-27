@@ -11,7 +11,6 @@ namespace tge
   // Game
   class Core;
   class InputHandler;
-  class Prompt;
   class Renderer;
   class ScreenBuffer;
   class Console;
