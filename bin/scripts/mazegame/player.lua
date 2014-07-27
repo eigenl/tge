@@ -7,12 +7,12 @@ Player.MoveDown = false
 Player.MoveLeft = false
 Player.MoveRight = false
 
-local moveCounter = 0.0
+local moveCounter = 1.0
 
 Player.update = function (frameTime)
 	if Player.MoveUp or Player.MoveDown or Player.MoveRight or Player.MoveLeft then
 		moveCounter = moveCounter + frameTime
-		if moveCounter >= 0.11 then
+		if moveCounter >= 0.12 then
 			Player.move()
 			moveCounter = 0.0
 		end
@@ -34,7 +34,7 @@ Player.handleKey = function (keyCode, pressed)
 
 	-- Up
 	if keyCode == 73 then
-		if pressed == true and Player.MoveDirection ~= 1 then
+		if pressed == true and Player.MoveUp == false then
 			Player.MoveUp = true
 		elseif pressed == false then
 			Player.MoveUp = false
@@ -42,7 +42,7 @@ Player.handleKey = function (keyCode, pressed)
 
 	-- Right
 	elseif keyCode == 72 then
-		if pressed == true and Player.MoveDirection ~= 2 then
+		if pressed == true and Player.MoveRight == false then
 			Player.MoveRight = true
 		elseif pressed == false then
 			Player.MoveRight = false
@@ -50,7 +50,7 @@ Player.handleKey = function (keyCode, pressed)
 	
 	-- Down
 	elseif keyCode == 74 then
-		if pressed == true and Player.MoveDirection ~= 3 then
+		if pressed == true and Player.MoveDown == false then
 			Player.MoveDown = true
 		elseif pressed == false then
 			Player.MoveDown = false
@@ -58,21 +58,17 @@ Player.handleKey = function (keyCode, pressed)
 
 	-- Left
 	elseif keyCode == 71 then
-		if pressed == true and Player.MoveDirection ~= 4 then
+		if pressed == true and Player.MoveLeft == false then
 			Player.MoveLeft = true
 		elseif pressed == false then
 			Player.MoveLeft = false
 		end
 	end
 	
-end
-
-Player.resetMove = function ()
-	moveCounter = 0.0
-	Player.MoveUp = false
-	Player.MoveDown = false
-	Player.MoveLeft = false
-	Player.MoveRight = false
+	if Player.MoveDown == false and Player.MoveUp == false and Player.MoveRight == false and Player.MoveLeft == false then
+		moveCounter = 1.0
+	end
+	
 end
 
 Player.move = function ()
@@ -87,6 +83,10 @@ Player.move = function ()
 	elseif Player.MoveDown == true then
 		newPosition.y = newPosition.y + 1
 	end
+	
+	if Map.isPassableTile(Map.tileAt(Player.X, newPosition.y)) then
+		Player.Y = newPosition.y
+	end
 		
 	-- Right
 	if Player.MoveRight == true then
@@ -97,9 +97,8 @@ Player.move = function ()
 		newPosition.x = newPosition.x - 1
 	end
 
-	if Map.isPassableTile(Map.tileAt(newPosition.x, newPosition.y)) then
+	if Map.isPassableTile(Map.tileAt(newPosition.x, Player.Y)) then
 		Player.X = newPosition.x
-		Player.Y = newPosition.y
 	end
 	
 end
