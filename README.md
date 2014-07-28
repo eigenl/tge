@@ -12,6 +12,8 @@ But let's be serious for a moment. TGE is a little text game engine using LUA. N
 
 The engine was initially written for Text-Based Multiplayer Shooter (http://steamcommunity.com/sharedfiles/filedetails/?id=240955605) but I thought it might be useful for others as well.
 
+There are two text modes available: 80x25 and 40x25 characters.
+
 
 Roadmap
 =======
