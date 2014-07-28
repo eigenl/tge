@@ -22,7 +22,13 @@ namespace tge
 
     int clear(lua_State * L)
     {
-      obj->clear();
+      unsigned char color = CLEAR;
+
+      if (lua_gettop(L) == 1) {
+        color = lua_tointeger(L, 1);
+      }
+
+      obj->clear(color);
 
       return 0;
     }

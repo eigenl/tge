@@ -47,6 +47,19 @@ Renderer::Renderer(Core * c) : C(c)
   else {
     // ((Texture &)font.getTexture(12)).setSmooth(false);
   }
+
+
+
+
+  /*if (!glowShader.loadFromFile("data/shaders/glow.frag", sf::Shader::Fragment)) {
+      printf("Failed to load glow fragment shader ...\n");
+  }*/
+
+  screenRenderTexture[VideoMode::Text_80x25].create(640 * UpscaleFactor, (300 + RenderTextureBottomPadding) * UpscaleFactor);
+  screenRenderTexture[VideoMode::Text_80x25].setSmooth(true);
+
+  screenRenderTexture[VideoMode::Text_40x25].create(320 * UpscaleFactor, (300 + RenderTextureBottomPadding) * UpscaleFactor);
+  screenRenderTexture[VideoMode::Text_40x25].setSmooth(true);
 }
 
 void Renderer::setVideoMode(VideoMode mode)
@@ -58,20 +71,12 @@ void Renderer::setVideoMode(VideoMode mode)
   int BufWidth = 80;
   int BufHeight = 25;
 
-  screenRenderTexture.clear();
+  screenRenderTexture[videoMode].clear();
 
   if (videoMode == VideoMode::Text_40x25)
   {
     BufWidth = 40;
     BufHeight = 25;
-
-    screenRenderTexture.create(320 * UpscaleFactor, (300 + RenderTextureBottomPadding) * UpscaleFactor);
-    screenRenderTexture.setSmooth(true);
-  }
-  else
-  {
-    screenRenderTexture.create(640 * UpscaleFactor, (300 + RenderTextureBottomPadding) * UpscaleFactor);
-    screenRenderTexture.setSmooth(true);
   }
 
   if (screenBuffer) {
@@ -169,7 +174,7 @@ void Renderer::drawScreenBuffer()
 
   const BufferElement * buf = screenBuffer->pointer();
 
-  screenRenderTexture.clear(/*colors[BLACK]*/Color::Transparent);
+  screenRenderTexture[videoMode].clear( Color::Transparent );
 
   sf::Text text;
 
@@ -191,7 +196,7 @@ void Renderer::drawScreenBuffer()
           testRect.setFillColor(colors[b->background]);
           testRect.setPosition(topLeft.x + _x * glyphSize.x, topLeft.y + _y * glyphSize.y);
 
-          screenRenderTexture.draw(testRect);
+          screenRenderTexture[videoMode].draw(testRect);
         }
 
         if (layer == 1 && b->content != 0)
@@ -200,13 +205,13 @@ void Renderer::drawScreenBuffer()
           text.setColor(colors[b->foreground]);
           text.setPosition(topLeft.x + _x * glyphSize.x, topLeft.y + (_y * glyphSize.y) - UpscaleFactor * 2);
 
-          screenRenderTexture.draw(text);
+          screenRenderTexture[videoMode].draw(text);
         }
       }
     }
   }
 
-  screenRenderTexture.display();
+  screenRenderTexture[videoMode].display();
 
 
   // Texture sprTex = screenRenderTexture.getTexture();
@@ -364,7 +369,12 @@ void Renderer::drawScreenBuffer()
     quad[i].position += Vector2f(topLeftGlobal.x, topLeftGlobal.y);
   }*/
 
-  renderWindow->draw(quad, &screenRenderTexture.getTexture());
+
+  // glowShader.setParameter("texture", screenRenderTexture.getTexture());
+  // renderWindow->draw(quad, &glowShader);
+
+
+  renderWindow->draw(quad, &screenRenderTexture[videoMode].getTexture());
 
   return;
 }

@@ -447,10 +447,10 @@
 	<SFML/Window.hpp>
 	"Shared.h"
 
-1406567175 c:\users\eigen\gamedev\tge\include\renderer.h
+1406581048 c:\users\eigen\gamedev\tge\include\renderer.h
 	"Shared.h"
 
-1406528030 c:\users\eigen\gamedev\tge\include\screenbuffer.h
+1406581329 c:\users\eigen\gamedev\tge\include\screenbuffer.h
 	<SFML/Graphics.hpp>
 	<string>
 	"Shared.h"
@@ -554,7 +554,7 @@
 	"Shared.h"
 	"TextField.h"
 
-1406567248 source:c:\users\eigen\gamedev\tge\src\renderer.cpp
+1406581133 source:c:\users\eigen\gamedev\tge\src\renderer.cpp
 	"Core.h"
 	"Renderer.h"
 	"ScreenBuffer.h"
@@ -564,7 +564,7 @@
 	<stdio.h>
 	<math.h>
 
-1406567508 source:c:\users\eigen\gamedev\tge\src\screenbuffer.cpp
+1406581348 source:c:\users\eigen\gamedev\tge\src\screenbuffer.cpp
 	"ScreenBuffer.h"
 	"Core.h"
 	"Colors.h"
@@ -1569,7 +1569,7 @@
 	<Renderer.h>
 	"lunar.h"
 
-1406567383 c:\users\eigen\gamedev\tge\include\lua\screenbuffer.h
+1406581386 c:\users\eigen\gamedev\tge\include\lua\screenbuffer.h
 	<ScreenBuffer.h>
 	"lunar.h"
 	"strutil/strutil.h"

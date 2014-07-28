@@ -14,11 +14,11 @@ ScreenBuffer::ScreenBuffer(Core * c, sf::Vector2u _size) : C(c), size(_size)
   buffer = new BufferElement[size.x * size.y];
 }
 
-void ScreenBuffer::clear()
+void ScreenBuffer::clear(unsigned char color)
 {
   for (size_t i = 0; i < (size.x * size.y); ++i)
   {
-    buffer[i].background = 0;
+    buffer[i].background = color;
     buffer[i].foreground = 0;
   }
 }

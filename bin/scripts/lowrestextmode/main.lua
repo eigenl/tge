@@ -26,6 +26,7 @@ function redraw()
 	end
 	
 	Screen.print({x = 1, y = 23, text = "F1 toggles between video modes.", color = Color.White })
+	
 end
 
 -- This method gets called every frame

@@ -15,7 +15,9 @@ namespace tge
       enum VideoMode
       {
         Text_80x25 = 0,
-        Text_40x25
+        Text_40x25,
+
+        VideoModeCount
       };
 
       Renderer(Core * c);
@@ -40,12 +42,13 @@ namespace tge
 
       ScreenBuffer * screenBuffer;
 
-      sf::RenderTexture screenRenderTexture;
+      sf::RenderTexture screenRenderTexture[VideoModeCount];
 
       sf::Texture *wallpaperTexture, *monitorTexture;
       sf::Sprite *wallpaperSprite, *monitorSprite;
 
       sf::Font font;
+      sf::Shader glowShader;
 
       void drawWallpaper();
       void drawMonitor();

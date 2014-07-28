@@ -44,7 +44,7 @@ namespace tge
       ScreenBuffer(Core * c, sf::Vector2u _size);
 
       // Clears the display
-      void clear();
+      void clear(unsigned char color = CLEAR);
 
       inline sf::Vector2u getSize() { return size; }
 
