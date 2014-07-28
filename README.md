@@ -10,6 +10,9 @@ All you need is your keyboard and a beverage of choice and you'll be up and runn
 
 But let's be serious for a moment. TGE is a little text game engine using LUA. No need to build the engine if that's not your thing, just use the pre-built binary, plug in your scripts and you're set! I've included a few little examples to help you get going.
 
+The engine was initially written for Text-Based Multiplayer Shooter (http://steamcommunity.com/sharedfiles/filedetails/?id=240955605) but I thought it might be useful for others as well.
+
+
 Roadmap
 =======
 
