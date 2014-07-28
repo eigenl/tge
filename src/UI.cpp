@@ -182,9 +182,11 @@ void UI::showMessageBox(std::wstring message)
 
   int msgBoxH = 4 + rows;
 
-  tge::Window * wnd = createWindow(0, IntRect((BufWidth / 2) - ((msgBoxW-1) / 2) - 1, (BufHeight / 2) - msgBoxH / 2, msgBoxW, msgBoxH), OPTS(YELLOW, BROWN));
+  const sf::Vector2u screenSize = C->getRenderer()->getScreenBuffer()->getSize();
+
+  tge::Window * wnd = createWindow(0, IntRect((screenSize.x / 2) - ((msgBoxW-1) / 2) - 1, (screenSize.y / 2) - msgBoxH / 2, msgBoxW, msgBoxH), OPTS(YELLOW, BROWN));
   tge::Label * messageLabel = createLabel(wnd, message, sf::Vector2u(3, 2), OPTS(WHITE));
-  tge::Label * closeMessage = createLabel(wnd, L" [Enter ►] ", sf::Vector2u(msgBoxW - 14, msgBoxH - 1), OPTS(YELLOW, BROWN));
+  /*tge::Label * closeMessage =*/ createLabel(wnd, L" [Enter ►] ", sf::Vector2u(msgBoxW - 14, msgBoxH - 1), OPTS(YELLOW, BROWN));
 
   messageLabel->setMaxWidth(msgBoxW - 6);
 

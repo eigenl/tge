@@ -14,6 +14,12 @@
 <b>load(</b>filePath<b>)</b>
 <i>For including LUA scripts. Argument <u>filePath</u> should be relative to "scripts/"</i>
 <br />
+<b>setVideoMode(</b>videoMode<b>)</b>
+<i>Set video mode. See <a href="#videomodes">available modes</a>. Default: <u>VideoMode.Text80x25</u></i>
+<br />
+<b>getVideoMode()</b>
+<i>Returns current video mode. See <a href="#videomodes">available modes</a>.</i>
+<br />
 <b>setWindowTitle(</b>title<b>)</b>
 <i>Set the application window title</i>
 <br />
@@ -110,7 +116,7 @@
 	<br />
 	<b>y</b> (int) <i>Top left row of the label relative to parent</i>
 	<br />
-	<b>width</b> (int) <i>Maximum width of the label in screen columns. Text is wrapped when the value is > 0.</i>
+	<b>width</b> (int) <i>Maximum width of the label in screen columns. Text is wrapped when the value is greater than 0.</i>
 	<br />
 	<b>text</b> (string) <i>Contents of this label.</i>
 	<br />
@@ -144,7 +150,11 @@
 	<br />
 	<b>background</b> (int) <i>Background color of the text. Default: <u>Clear</u></i>
 	<br />
-	<b>raw</b> (bool) <i>Print text as is without splicing words or wrapping text. Default: <u>false</u></i>
+	<b>raw</b> (bool) <i>Print text as is without splicing words or wrapping text. True value overwrites "length" and "lineWrap" settings. Default: <u>false</u></i>
+	<br />
+	<b>lineWrap</b> (bool) <i>Enables or disables line wrapping. True value only honored when "length" is greater than 0. Default: <u>false</u></i>
+	<br />
+	<b>length</b> (int) <i>Specifies how long text can be before it's wrapped. Default: <u>0</u></i>
 </p>
 
 <br />
@@ -240,19 +250,33 @@ List of available colors:
 	<li>Color.Green</li>
 	<li>Color.Cyan</li>
 	<li>Color.Blue</li>
-	<li>Color.Magneta</li>
+	<li>Color.Magenta</li>
 	<li>Color.Gray</li>
 	<li>Color.LightRed</li>
 	<li>Color.Yellow</li>
 	<li>Color.LightGreen</li>
 	<li>Color.LightCyan</li>
 	<li>Color.LightBlue</li>
-	<li>Color.LightMagneta</li>
+	<li>Color.LightMagenta</li>
 	<li>Color.LightGray</li>
 	<li>Color.White</li>
 	<li>Color.Black</li>
 </ul>
 
+
+<a name="videomodes"></a>
+<h2>VideoMode</h2>
+
+List of available video modes:
+
+<br/>
+
+<ul>
+	<li>VideoMode.Text80x25</li>
+	<li>VideoMode.Text40x25</li>
+</ul>
+
+<br/>
 
 <h1>Objects</h1>
 

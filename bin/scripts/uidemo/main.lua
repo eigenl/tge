@@ -15,7 +15,9 @@ function start()
 	mainInputTextField.onEnter(function(text)
 		print("Entered:", text)
 		mainInputTextField.clear()
-		UI.showMessageBox("You entered: "..text)
+		if string.len(text) > 0 then
+			UI.showMessageBox("You entered: "..text)
+		end
 	end)
 	
 	local headerWindow = LuaWindow(UI.createWindow({x = 18, y = 1, width = 44, height = 9, closable = false}))

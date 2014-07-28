@@ -299,7 +299,9 @@ void Core::launchGame()
     scriptImplementation->onStart();
   }
 
-  redraw();
+  if (!renderer->getScreenBuffer()) {
+    renderer->setVideoMode(Renderer::VideoMode::Text_80x25);
+  }
 }
 
 void Core::redraw()

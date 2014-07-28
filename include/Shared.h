@@ -50,9 +50,6 @@ namespace tge
 
     DIR_UNKNOWN
   };
-
-  #define BufWidth 80
-  #define BufHeight 25
 }
 
 #ifdef SFML_SYSTEM_WINDOWS

@@ -14,11 +14,11 @@ Console::Console(Core * c, sf::IntRect rect) : C(c), rectangle(rect)
 
 void Console::display()
 {
-  if (!active) {
+  ScreenBuffer * screenBuffer = C->getRenderer()->getScreenBuffer();
+
+  if (!active || !screenBuffer) {
     return;
   }
-
-  ScreenBuffer * screenBuffer = C->getRenderer()->getScreenBuffer();
 
   screenBuffer->clearRect(rectangle);
 

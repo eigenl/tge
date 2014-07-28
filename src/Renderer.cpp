@@ -3,6 +3,7 @@
 #include "ScreenBuffer.h"
 #include "Colors.h"
 #include "Utils.h"
+#include "ScriptingInterface.h"
 
 #include <stdio.h>
 #include <math.h>
@@ -14,15 +15,13 @@ Renderer::Renderer(Core * c) : C(c)
 {
   wallpaperTexture = 0;
   wallpaperSprite = 0;
+  screenBuffer = 0;
 
   monitorTexture = new Texture();
   monitorTexture->loadFromFile(Utils::getPlatformSpecificResourcePath() + "data/monitor.png");
 
   monitorSprite = new Sprite(*monitorTexture);
 
-  // setWallpaper(18);
-
-  screenBuffer = new ScreenBuffer(C, sf::Vector2u(BufWidth, BufHeight));
 
   colors.push_back(Color::Transparent);     // Clear
   colors.push_back(Color(170, 0, 0));       // Red
@@ -42,18 +41,54 @@ Renderer::Renderer(Core * c) : C(c)
   colors.push_back(Color(253, 253, 253));   // White
   colors.push_back(Color(19, 15, 15, 80));  // Black
 
-  if (!font.loadFromFile(Utils::getPlatformSpecificResourcePath() + "data/fonts/TerminalVector.ttf"))
-  {
+  if (!font.loadFromFile(Utils::getPlatformSpecificResourcePath() + "data/fonts/TerminalVector.ttf")) {
     printf("Failed to load font...\n");
+  }
+  else {
+    // ((Texture &)font.getTexture(12)).setSmooth(false);
+  }
+}
+
+void Renderer::setVideoMode(VideoMode mode)
+{
+  printf("setVideoMode = %d\n", mode);
+
+  videoMode = mode;
+
+  int BufWidth = 80;
+  int BufHeight = 25;
+
+  screenRenderTexture.clear();
+
+  if (videoMode == VideoMode::Text_40x25)
+  {
+    BufWidth = 40;
+    BufHeight = 25;
+
+    screenRenderTexture.create(320 * UpscaleFactor, (300 + RenderTextureBottomPadding) * UpscaleFactor);
+    screenRenderTexture.setSmooth(true);
   }
   else
   {
-    // ((Texture &)font.getTexture(12)).setSmooth(false);
+    screenRenderTexture.create(640 * UpscaleFactor, (300 + RenderTextureBottomPadding) * UpscaleFactor);
+    screenRenderTexture.setSmooth(true);
   }
 
-  screenRenderTexture.create(640 * UpscaleFactor, (300 + RenderTextureBottomPadding) * UpscaleFactor);
+  if (screenBuffer) {
+    delete screenBuffer;
+  }
 
-  screenRenderTexture.setSmooth(true);
+  printf("Buffer size: %d x %d\n", BufWidth, BufHeight);
+
+  screenBuffer = new ScreenBuffer(C, sf::Vector2u(BufWidth, BufHeight));
+
+  if (C->getScriptImpl()) {
+    C->getScriptImpl()->onSetVideoMode(videoMode);
+  }
+
+  C->redraw();
+
+  return;
 }
 
 void Renderer::setWallpaper(int wallpaperNumber)
@@ -141,13 +176,15 @@ void Renderer::drawScreenBuffer()
   text.setFont(font);
   text.setCharacterSize(12 * UpscaleFactor);
 
+  sf::Vector2u screenBufferSize = screenBuffer->getSize();
+
   for (int layer = 0; layer < 2; ++layer)
   {
-    for (int _y = 0; _y < BufHeight; ++_y)
+    for (int _y = 0; _y < screenBufferSize.y; ++_y)
     {
-      for (int _x = 0; _x < BufWidth; ++_x)
+      for (int _x = 0; _x < screenBufferSize.x; ++_x)
       {
-        const BufferElement * b = &buf[(_y * BufWidth) + _x];
+        const BufferElement * b = &buf[(_y * screenBufferSize.x) + _x];
 
         if (layer == 0 && b->background > 0)
         {
@@ -269,10 +306,11 @@ void Renderer::drawScreenBuffer()
   quad[15].texCoords = sf::Vector2f(480, (300 + RenderTextureBottomPadding));
 
 
+  const float xScaleFactor = (videoMode == Renderer::VideoMode::Text_80x25 ? 1 : 0.5);
 
   for (int i = 0; i < 16; ++i)
   {
-    quad[i].texCoords.x *= UpscaleFactor;
+    quad[i].texCoords.x *= (UpscaleFactor * xScaleFactor);
     quad[i].texCoords.y *= UpscaleFactor;
 
     quad[i].position.y *= yScale;

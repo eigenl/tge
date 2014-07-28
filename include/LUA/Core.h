@@ -2,6 +2,7 @@
 #define LUA_CORE_OBJECT
 
 #include <Core.h>
+#include <Renderer.h>
 
 #include "lunar.h"
 
@@ -19,26 +20,34 @@ namespace tge
     int load(lua_State * L)
     {
       obj->includeScriptFile(lua_tostring(L, 1));
-
       return 0;
     }
 
     int exit(lua_State * L)
     {
       int exitCode = lua_tointeger(L, 1);
-
       obj->close(exitCode);
-
       return 0;
     }
 
     int setWindowTitle(lua_State * L)
     {
       obj->setWindowTitle(lua_tostring(L, 1));
-
       return 0;
     }
 
+    int setVideoMode(lua_State * L)
+    {
+      Renderer::VideoMode videoMode = (Renderer::VideoMode)lua_tointeger(L, 1);
+      obj->getRenderer()->setVideoMode(videoMode);
+      return 0;
+    }
+
+    int getVideoMode(lua_State * L)
+    {
+      lua_pushinteger(L, obj->getRenderer()->getVideoMode());
+      return 1;
+    }
   };
 }
 

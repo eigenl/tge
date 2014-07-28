@@ -29,7 +29,7 @@ void ScreenBuffer::set(unsigned int x, unsigned int y, wchar_t c, DisplayOptions
 
   if (index < 0 || index >= (int)(size.x * size.y))
   {
-    printf("Invalid coordinate (%d, %d)...\n", x, y);
+    // printf("Invalid coordinate (%d, %d)...\n", x, y);
 
     return;
   }
@@ -94,12 +94,14 @@ int ScreenBuffer::print(unsigned int x, unsigned int y, std::wstring str, Displa
   unsigned int yAdjust = 0;
   unsigned int charIndex = 0;
 
+  const bool textWrapEnabled = ((textFlags & TEXT_WRAP) && maxLength > 0);
+
   for (unsigned int ti = 0; ti < tokens.size(); ++ti)
   {
     std::wstring _str = tokens[ti];
 
     // Is there enough space for the next token?
-    if (textFlags & TEXT_WRAP)
+    if (textWrapEnabled)
     {
       // Not enough space, go to next line
       if (_str.length() + xAdjust > maxLength) {

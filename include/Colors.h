@@ -9,7 +9,7 @@ enum Colors
   GREEN,
   CYAN,
   BLUE,
-  MAGNETA,
+  MAGENTA,
   LIGHT_GRAY,
   GRAY,
   LIGHT_RED,
@@ -17,7 +17,7 @@ enum Colors
   LIGHT_GREEN,
   LIGHT_CYAN,
   LIGHT_BLUE,
-  LIGHT_MAGNETA,
+  LIGHT_MAGENTA,
   WHITE,
   BLACK,
   CLEAR2

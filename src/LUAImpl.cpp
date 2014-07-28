@@ -46,6 +46,8 @@ LUNA_IMPL_FUNCTIONS() = {
   LunaMethod(load),
   LunaMethod(exit),
   LunaMethod(setWindowTitle),
+  LunaMethod(setVideoMode),
+  LunaMethod(getVideoMode),
   {0}
 };
 LUNA_IMPL_PROPERTIES_NONE()
@@ -231,7 +233,7 @@ bool LUAImpl::init(const char * fileName)
     "Green", GREEN,
     "Cyan", CYAN,
     "Blue", BLUE,
-    "Magneta", MAGNETA,
+    "Magenta", MAGENTA,
     "LightGray", LIGHT_GRAY,
     "Gray", GRAY,
     "LightRed", LIGHT_RED,
@@ -239,12 +241,15 @@ bool LUAImpl::init(const char * fileName)
     "LightGreen", LIGHT_GREEN,
     "LightCyan", LIGHT_CYAN,
     "LightBlue", LIGHT_BLUE,
-    "LightMagneta", LIGHT_MAGNETA,
+    "LightMagenta", LIGHT_MAGENTA,
     "White", WHITE,
     "Black", BLACK,
     0);
 
-
+  registerEnum(state, "VideoMode",
+     "Text80x25", Renderer::VideoMode::Text_80x25,
+     "Text40x25", Renderer::VideoMode::Text_40x25,
+  0);
 
   luaL_dofile(state, startupScriptPath.c_str());
   luaL_dofile(state, mainScriptPath.c_str());
@@ -314,6 +319,16 @@ bool LUAImpl::onTextFieldEnter(tge::TextField * textField)
   }
 
   return false;
+}
+
+void LUAImpl::onSetVideoMode(int mode)
+{
+  lua_pushlightuserdata(state, (void *)C->getRenderer()->getScreenBuffer());
+  lua_setglobal(state, "gScreenBuffer");
+
+  lua_getglobal(state, "onSetVideoMode");
+  lua_pushinteger(state, mode);
+  lua_call(state, 1, 0);
 }
 
 

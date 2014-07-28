@@ -12,9 +12,19 @@ namespace tge
   {
     public:
 
+      enum VideoMode
+      {
+        Text_80x25 = 0,
+        Text_40x25
+      };
+
       Renderer(Core * c);
 
       virtual ~Renderer();
+
+      void setVideoMode(VideoMode mode);
+
+      inline VideoMode getVideoMode() { return videoMode; }
 
       void draw();
 
@@ -25,6 +35,8 @@ namespace tge
     protected:
 
       Core * C;
+
+      VideoMode videoMode;
 
       ScreenBuffer * screenBuffer;
 

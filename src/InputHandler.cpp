@@ -1,5 +1,4 @@
 #include "Core.h"
-#include "Game.h"
 #include "InputHandler.h"
 #include "Shared.h"
 #include "Renderer.h"

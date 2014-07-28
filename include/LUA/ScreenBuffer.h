@@ -61,7 +61,7 @@ namespace tge
         else if (key == "raw" || key == "asIs") {
           rawFormat = lua_toboolean(L, -1);
         }
-        else if (key == "wrap" || key == "lineWrap") {
+        else if (key == "wrap" || key == "lineWrap" || key == "wrapText" || key == "textWrap") {
           wrapText = lua_toboolean(L, -1);
         }
         else if (key == "length" || key == "maxLength") {

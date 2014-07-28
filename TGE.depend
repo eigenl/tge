@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1406409655 source:c:\users\eigen\gamedev\tge\src\console.cpp
+1406566726 source:c:\users\eigen\gamedev\tge\src\console.cpp
 	"Console.h"
 	"Core.h"
 	"Renderer.h"
@@ -433,29 +433,29 @@
 	<vector>
 	<string>
 
-1406490918 c:\users\eigen\gamedev\tge\include\shared.h
+1406565362 c:\users\eigen\gamedev\tge\include\shared.h
 	"Colors.h"
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
 	<cstdarg>
 	<cwchar>
 
-1394398996 c:\users\eigen\gamedev\tge\include\colors.h
+1406566255 c:\users\eigen\gamedev\tge\include\colors.h
 
 1406463141 c:\users\eigen\gamedev\tge\include\core.h
 	<SFML/Graphics.hpp>
 	<SFML/Window.hpp>
 	"Shared.h"
 
-1406390666 c:\users\eigen\gamedev\tge\include\renderer.h
+1406567175 c:\users\eigen\gamedev\tge\include\renderer.h
 	"Shared.h"
 
-1406394183 c:\users\eigen\gamedev\tge\include\screenbuffer.h
+1406528030 c:\users\eigen\gamedev\tge\include\screenbuffer.h
 	<SFML/Graphics.hpp>
 	<string>
 	"Shared.h"
 
-1406490891 source:c:\users\eigen\gamedev\tge\src\core.cpp
+1406567190 source:c:\users\eigen\gamedev\tge\src\core.cpp
 	"Core.h"
 	"Renderer.h"
 	"InputHandler.h"
@@ -530,9 +530,8 @@
 	<string>
 	<vector>
 
-1406386534 source:c:\users\eigen\gamedev\tge\src\inputhandler.cpp
+1406564499 source:c:\users\eigen\gamedev\tge\src\inputhandler.cpp
 	"Core.h"
-	"Game.h"
 	"InputHandler.h"
 	"Shared.h"
 	"Renderer.h"
@@ -555,16 +554,17 @@
 	"Shared.h"
 	"TextField.h"
 
-1406463469 source:c:\users\eigen\gamedev\tge\src\renderer.cpp
+1406567248 source:c:\users\eigen\gamedev\tge\src\renderer.cpp
 	"Core.h"
 	"Renderer.h"
 	"ScreenBuffer.h"
 	"Colors.h"
 	"Utils.h"
+	"ScriptingInterface.h"
 	<stdio.h>
 	<math.h>
 
-1406490903 source:c:\users\eigen\gamedev\tge\src\screenbuffer.cpp
+1406567508 source:c:\users\eigen\gamedev\tge\src\screenbuffer.cpp
 	"ScreenBuffer.h"
 	"Core.h"
 	"Colors.h"
@@ -578,7 +578,7 @@
 	"Renderer.h"
 	"ScreenBuffer.h"
 
-1406490909 source:c:\users\eigen\gamedev\tge\src\ui.cpp
+1406567309 source:c:\users\eigen\gamedev\tge\src\ui.cpp
 	"UI.h"
 	"Core.h"
 	"Console.h"
@@ -1529,7 +1529,7 @@
 	"llimits.h"
 	"lua.h"
 
-1406474897 c:\users\eigen\gamedev\tge\include\luaimpl.h
+1406567218 c:\users\eigen\gamedev\tge\include\luaimpl.h
 	"Shared.h"
 	"ScriptingInterface.h"
 	"lua/lua.h"
@@ -1537,7 +1537,7 @@
 	"lua/lualib.h"
 	"lua/lstate.h"
 
-1406474897 source:c:\users\eigen\gamedev\tge\src\luaimpl.cpp
+1406567225 source:c:\users\eigen\gamedev\tge\src\luaimpl.cpp
 	"LUAImpl.h"
 	"Core.h"
 	"Renderer.h"
@@ -1554,7 +1554,7 @@
 	"LUA/Window.h"
 	<sstream>
 
-1406474897 c:\users\eigen\gamedev\tge\include\scriptinginterface.h
+1406567214 c:\users\eigen\gamedev\tge\include\scriptinginterface.h
 
 1406389480 source:c:\users\eigen\gamedev\tge\src\scriptinginterface.cpp
 	"ScriptingInterface.h"
@@ -1564,11 +1564,12 @@
 	"lua/lauxlib.h"
 	<cstring>
 
-1406463179 c:\users\eigen\gamedev\tge\include\lua\core.h
+1406567204 c:\users\eigen\gamedev\tge\include\lua\core.h
 	<Core.h>
+	<Renderer.h>
 	"lunar.h"
 
-1406488757 c:\users\eigen\gamedev\tge\include\lua\screenbuffer.h
+1406567383 c:\users\eigen\gamedev\tge\include\lua\screenbuffer.h
 	<ScreenBuffer.h>
 	"lunar.h"
 	"strutil/strutil.h"

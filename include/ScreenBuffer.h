@@ -46,6 +46,8 @@ namespace tge
       // Clears the display
       void clear();
 
+      inline sf::Vector2u getSize() { return size; }
+
       // Draw methods
 
       void set(unsigned int x, unsigned int y, wchar_t c, DisplayOptions options = DisplayOptions(), int flags = 0);
@@ -65,6 +67,8 @@ namespace tge
       inline const BufferElement * pointer() { return buffer; }
 
       static int calculateTextHeight(std::wstring text, unsigned int maxLength);
+
+
 
     private:
 
