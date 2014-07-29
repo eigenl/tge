@@ -19,7 +19,6 @@ There are two text modes available: 80x25 and 40x25 characters.
 Roadmap
 =======
 
-- OS X build
 - Sound
 - Sprites
 - File system
