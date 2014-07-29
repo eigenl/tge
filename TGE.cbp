@@ -67,6 +67,7 @@
 		<Unit filename="include/LUA/ScreenBuffer.h" />
 		<Unit filename="include/LUA/TextField.h" />
 		<Unit filename="include/LUA/UI.h" />
+		<Unit filename="include/LUA/Utils.h" />
 		<Unit filename="include/LUA/Window.h" />
 		<Unit filename="include/Label.h" />
 		<Unit filename="include/Renderer.h" />
