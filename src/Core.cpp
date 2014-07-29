@@ -54,7 +54,9 @@ int Core::init(int argc, char* argv[])
 
   if (scriptName.length() == 0)
   {
-    std::ifstream file("config.dat");
+    std::string confPath = Utils::getPlatformSpecificResourcePath() + "config.dat";
+    std::ifstream file(confPath);
+
     std::string line;
 
     while (std::getline(file, line))
@@ -108,7 +110,7 @@ int Core::init(int argc, char* argv[])
 
   isFullscreen = fullscreen;
 
-  window = new RenderWindow(videoMode, "TBE", windowFlags);
+  window = new RenderWindow(videoMode, "TGE", windowFlags);
 
   window->setFramerateLimit(60);
   window->setVerticalSyncEnabled(true);
@@ -277,20 +279,22 @@ int Core::run()
 
 void Core::toggleFullscreen()
 {
-  isFullscreen = !isFullscreen;
+    isFullscreen = !isFullscreen;
 
-  delete window;
+    sf::Vector2u currentWindowSize = window->getSize();
 
-  int windowFlags = Style::Titlebar | Style::Close;
+    delete window;
 
-  if (isFullscreen) {
+    int windowFlags = Style::Titlebar | Style::Close;
+
+    if (isFullscreen) {
     windowFlags |= Style::Fullscreen;
-  }
+    }
 
-  window = new sf::RenderWindow(sf::VideoMode(1280, 720), "Text-Based Multiplayer Shooter", windowFlags);
-  window->setFramerateLimit(60);
-  window->setVerticalSyncEnabled(true);
-  window->setMouseCursorVisible(false);
+    window = new sf::RenderWindow(sf::VideoMode(currentWindowSize.x, currentWindowSize.y), "TGE", windowFlags);
+    window->setFramerateLimit(60);
+    window->setVerticalSyncEnabled(true);
+    window->setMouseCursorVisible(false);
 }
 
 void Core::launchGame()

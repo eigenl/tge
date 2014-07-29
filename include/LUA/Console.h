@@ -4,6 +4,7 @@
 #include <Console.h>
 
 #include "lunar.h"
+#include "strutil/strutil.h"
 
 #define OBJ_CLASS Console
 #define LUA_OBJ_CLASS LuaConsole

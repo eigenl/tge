@@ -8,13 +8,13 @@ extern "C" {
 
 #include <cstring>
 
-LUALIB_API int luaL_typerror (lua_State *L, int narg, const char *tname) {
+/*LUALIB_API int luaL_typerror (lua_State *L, int narg, const char *tname) {
   const char *msg = lua_pushfstring(L, "%s expected, got %s",
                                     tname, luaL_typename(L, narg));
   return luaL_argerror(L, narg, msg);
-}
+}*/
 
-LUALIB_API int (luaL_typerror) (lua_State *L, int narg, const char *tname);
+// LUALIB_API int (luaL_typerror) (lua_State *L, int narg, const char *tname);
 
 template < class T > class Luna {
   public:

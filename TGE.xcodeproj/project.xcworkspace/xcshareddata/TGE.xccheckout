@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>A149CDF4-329C-41FB-A01A-2EDBFA5CAE86</string>
+	<key>IDESourceControlProjectName</key>
+	<string>TGE</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>0969A98C-41DF-421D-8A84-33F8F71D0458</key>
+		<string>https://github.com/eigenl/tge.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>TGE/TGE.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>0969A98C-41DF-421D-8A84-33F8F71D0458</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/eigenl/tge.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>0969A98C-41DF-421D-8A84-33F8F71D0458</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>0969A98C-41DF-421D-8A84-33F8F71D0458</string>
+			<key>IDESourceControlWCCName</key>
+			<string>TGE_git</string>
+		</dict>
+	</array>
+</dict>
+</plist>
