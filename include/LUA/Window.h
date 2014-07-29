@@ -27,7 +27,14 @@ namespace tge
     int onClose(lua_State * L)
     {
       int functionRefIndex = luaL_ref(L, LUA_REGISTRYINDEX);
-      obj->setOnCloseCallback(functionRefIndex);
+      obj->setCallbackFunctionIndex(Window::CallbackFunctions::OnClose, functionRefIndex);
+      return 0;
+    }
+
+    int onKey(lua_State * L)
+    {
+      int functionRefIndex = luaL_ref(L, LUA_REGISTRYINDEX);
+      obj->setCallbackFunctionIndex(Window::CallbackFunctions::OnKey, functionRefIndex);
       return 0;
     }
 

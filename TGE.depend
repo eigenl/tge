@@ -433,7 +433,7 @@
 	<vector>
 	<string>
 
-1406565362 c:\users\eigen\gamedev\tge\include\shared.h
+1406645942 c:\users\eigen\gamedev\tge\include\shared.h
 	"Colors.h"
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
@@ -442,7 +442,7 @@
 
 1406566255 c:\users\eigen\gamedev\tge\include\colors.h
 
-1406463141 c:\users\eigen\gamedev\tge\include\core.h
+1406660133 c:\users\eigen\gamedev\tge\include\core.h
 	<SFML/Graphics.hpp>
 	<SFML/Window.hpp>
 	"Shared.h"
@@ -455,10 +455,9 @@
 	<string>
 	"Shared.h"
 
-1406581987 source:c:\users\eigen\gamedev\tge\src\core.cpp
+1406660349 source:c:\users\eigen\gamedev\tge\src\core.cpp
 	"Core.h"
 	"Renderer.h"
-	"InputHandler.h"
 	"ScreenBuffer.h"
 	"Console.h"
 	"Utils.h"
@@ -466,6 +465,7 @@
 	"Window.h"
 	"Label.h"
 	"TextField.h"
+	"SoundManager.h"
 	"LUAImpl.h"
 	"strutil/strutil.h"
 	<stdio.h>
@@ -489,7 +489,7 @@
 	"Shared.h"
 	<SFML/Graphics.hpp>
 
-1406460242 c:\users\eigen\gamedev\tge\include\window.h
+1406655281 c:\users\eigen\gamedev\tge\include\window.h
 	"Shared.h"
 	"UIWidget.h"
 
@@ -554,7 +554,7 @@
 	"Shared.h"
 	"TextField.h"
 
-1406581133 source:c:\users\eigen\gamedev\tge\src\renderer.cpp
+1406643660 source:c:\users\eigen\gamedev\tge\src\renderer.cpp
 	"Core.h"
 	"Renderer.h"
 	"ScreenBuffer.h"
@@ -578,7 +578,7 @@
 	"Renderer.h"
 	"ScreenBuffer.h"
 
-1406567309 source:c:\users\eigen\gamedev\tge\src\ui.cpp
+1406655270 source:c:\users\eigen\gamedev\tge\src\ui.cpp
 	"UI.h"
 	"Core.h"
 	"Console.h"
@@ -603,7 +603,7 @@
 	<math.h>
 	<sstream>
 
-1406459476 source:c:\users\eigen\gamedev\tge\src\window.cpp
+1406655274 source:c:\users\eigen\gamedev\tge\src\window.cpp
 	"Window.h"
 	"Core.h"
 	"UI.h"
@@ -1529,7 +1529,7 @@
 	"llimits.h"
 	"lua.h"
 
-1406567218 c:\users\eigen\gamedev\tge\include\luaimpl.h
+1406651934 c:\users\eigen\gamedev\tge\include\luaimpl.h
 	"Shared.h"
 	"ScriptingInterface.h"
 	"lua/lua.h"
@@ -1537,7 +1537,7 @@
 	"lua/lualib.h"
 	"lua/lstate.h"
 
-1406615258 source:c:\users\eigen\gamedev\tge\src\luaimpl.cpp
+1406660954 source:c:\users\eigen\gamedev\tge\src\luaimpl.cpp
 	"LUAImpl.h"
 	"Core.h"
 	"Renderer.h"
@@ -1555,12 +1555,12 @@
 	"LUA/Window.h"
 	<sstream>
 
-1406567214 c:\users\eigen\gamedev\tge\include\scriptinginterface.h
+1406654494 c:\users\eigen\gamedev\tge\include\scriptinginterface.h
 
 1406389480 source:c:\users\eigen\gamedev\tge\src\scriptinginterface.cpp
 	"ScriptingInterface.h"
 
-1406390135 c:\users\eigen\gamedev\tge\include\lunar.h
+1406643660 c:\users\eigen\gamedev\tge\include\lunar.h
 	"lua/lua.h"
 	"lua/lauxlib.h"
 	<cstring>
@@ -1610,11 +1610,12 @@
 	"lunar.h"
 	"strutil/strutil.h"
 
-1406614480 c:\users\eigen\gamedev\tge\include\lua\console.h
+1406643660 c:\users\eigen\gamedev\tge\include\lua\console.h
 	<Console.h>
 	"lunar.h"
+	"strutil/strutil.h"
 
-1406614495 c:\users\eigen\gamedev\tge\include\lua\window.h
+1406653612 c:\users\eigen\gamedev\tge\include\lua\window.h
 	<Window.h>
 	"lunar.h"
 	"strutil/strutil.h"
@@ -1627,4 +1628,11 @@
 1406615301 c:\users\eigen\gamedev\tge\include\lua\utils.h
 	<Utils.h>
 	"lunar.h"
+
+1406645939 c:\users\eigen\gamedev\tge\include\soundmanager.h
+	"Shared.h"
+
+1406646385 source:c:\users\eigen\gamedev\tge\src\soundmanager.cpp
+	"SoundManager.h"
+	"Core.h"
 

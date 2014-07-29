@@ -141,6 +141,7 @@ LUNA_IMPL_FUNCTIONS() = {
   LunaMethod(instance),
   LunaMethod(close),
   LunaMethod(onClose),
+  LunaMethod(onKey),
   LunaMethod(setId),
   LunaMethod(getId),
   {0}
@@ -318,9 +319,11 @@ void LUAImpl::redraw()
 
 bool LUAImpl::onWindowClose(tge::Window * window, bool cancelled)
 {
-  if (window->onCloseCallback() != -1)
+  int functionIndex = window->getCallbackFunctionIndex(Window::CallbackFunctions::OnClose);
+
+  if (functionIndex != -1)
   {
-    lua_rawgeti(state, LUA_REGISTRYINDEX, window->onCloseCallback());
+    lua_rawgeti(state, LUA_REGISTRYINDEX, functionIndex);
     lua_pushboolean(state, cancelled);
     lua_call(state, 1, 0);
 
@@ -328,6 +331,23 @@ bool LUAImpl::onWindowClose(tge::Window * window, bool cancelled)
   }
 
   return false;
+}
+
+bool LUAImpl::onWindowKey(tge::Window * window, int keyCode, bool pressed)
+{
+  int functionIndex = window->getCallbackFunctionIndex(Window::CallbackFunctions::OnKey);
+
+  if (functionIndex != -1)
+  {
+    lua_rawgeti(state, LUA_REGISTRYINDEX, functionIndex);
+    lua_pushinteger(state, keyCode);
+    lua_pushboolean(state, pressed);
+    lua_call(state, 2, 1);
+
+    return lua_toboolean(state, -1);
+  }
+
+  return true;
 }
 
 bool LUAImpl::onTextFieldEnter(tge::TextField * textField)

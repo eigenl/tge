@@ -34,6 +34,7 @@ namespace tge
       virtual void key(int keyCode, bool pressed, bool handled);
       virtual void redraw();
       virtual bool onWindowClose(tge::Window * window, bool cancelled);
+      virtual bool onWindowKey(tge::Window * window, int keyCode, bool pressed);
       virtual bool onTextFieldEnter(tge::TextField * textField);
       virtual void onSetVideoMode(int mode);
 

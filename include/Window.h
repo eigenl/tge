@@ -10,6 +10,14 @@ namespace tge
   {
     public:
 
+      enum CallbackFunctions
+      {
+        OnClose = 0,
+        OnKey,
+
+        Count
+      };
+
       Window(Core * c, sf::IntRect rect, OPTS dOpts = OPTS(WHITE, BLUE));
 
       virtual ~Window();
@@ -28,14 +36,23 @@ namespace tge
 
       void close();
 
-      inline void setOnCloseCallback(int callbackId) { onCloseCallbackId = callbackId; }
-      inline int onCloseCallback() { return onCloseCallbackId; }
+
+      // LUA callbacks
+
+      inline void setCallbackFunctionIndex(int callbackType, int callbackFunctionIndex) {
+        callbackFunctionIndexes[callbackType] = callbackFunctionIndex;
+      }
+
+      inline int getCallbackFunctionIndex(int callbackType) {
+        return callbackFunctionIndexes[callbackType];
+      }
 
     private:
 
       bool closable;
       bool hasShadow;
-      int onCloseCallbackId;
+
+      int callbackFunctionIndexes[CallbackFunctions::Count];
 
   };
 }

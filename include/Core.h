@@ -30,10 +30,9 @@ namespace tge
 
       // Singletons
       inline Renderer * getRenderer() { return renderer; }
+      inline SoundManager * getSoundManager() { return soundManager; }
       inline UI * getUI() { return ui; }
       inline ScriptingInterface * getScriptImpl() { return scriptImplementation; }
-
-      // Console * getMainConsole();
 
       void redraw();
       void launchGame();
@@ -45,7 +44,7 @@ namespace tge
       sf::RenderWindow * window;
 
       Renderer * renderer;
-      InputHandler * inputHandler;
+      SoundManager * soundManager;
       UI * ui;
 
       ScriptingInterface * scriptImplementation;

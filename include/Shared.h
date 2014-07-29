@@ -12,6 +12,7 @@ namespace tge
   class Core;
   class InputHandler;
   class Renderer;
+  class SoundManager;
   class ScreenBuffer;
   class Console;
   class UI;

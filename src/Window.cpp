@@ -14,7 +14,10 @@ tge::Window::Window(Core * c, sf::IntRect rect, OPTS dOpts)
   displayOptions = dOpts;
   closable = true;
   hasShadow = false;
-  onCloseCallbackId = -1;
+
+  for (unsigned int i = 0; i < Window::CallbackFunctions::Count; ++i) {
+    callbackFunctionIndexes[i] = -1;
+  }
 }
 
 void tge::Window::display(const float frameTime)
@@ -30,9 +33,10 @@ void tge::Window::display(const float frameTime)
   UIWidget::display(frameTime);
 }
 
-void tge::Window::close()
-{
+void tge::Window::close() {
   C->getUI()->removeWidget(this);
 }
 
-tge::Window::~Window() { }
+tge::Window::~Window() {
+
+}

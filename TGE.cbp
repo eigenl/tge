@@ -13,7 +13,7 @@
 				<Option type="1" />
 				<Option compiler="gcc" />
 				<Option use_console_runner="0" />
-				<Option parameters='-script &quot;lowrestextmode/main&quot;' />
+				<Option parameters='-script &quot;uidemo/main&quot;' />
 				<Compiler>
 					<Add option="-g" />
 					<Add directory="include" />
@@ -59,7 +59,6 @@
 		<Unit filename="include/Colors.h" />
 		<Unit filename="include/Console.h" />
 		<Unit filename="include/Core.h" />
-		<Unit filename="include/InputHandler.h" />
 		<Unit filename="include/LUAImpl.h" />
 		<Unit filename="include/LUA/Console.h" />
 		<Unit filename="include/LUA/Core.h" />
@@ -206,12 +205,11 @@
 		<Unit filename="libs/strutil/strutil.h" />
 		<Unit filename="src/Console.cpp" />
 		<Unit filename="src/Core.cpp" />
-		<Unit filename="src/InputHandler.cpp" />
 		<Unit filename="src/LUAImpl.cpp" />
 		<Unit filename="src/Label.cpp" />
 		<Unit filename="src/Renderer.cpp" />
 		<Unit filename="src/ScreenBuffer.cpp" />
-		<Unit filename="src/ScriptingInterface.cpp" />
+		<Unit filename="src/SoundManager.cpp" />
 		<Unit filename="src/TextField.cpp" />
 		<Unit filename="src/UI.cpp" />
 		<Unit filename="src/UIWidget.cpp" />

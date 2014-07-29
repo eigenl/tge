@@ -1,6 +1,5 @@
 #include "Core.h"
 #include "Renderer.h"
-#include "InputHandler.h"
 #include "ScreenBuffer.h"
 #include "Console.h"
 #include "Utils.h"
@@ -8,6 +7,7 @@
 #include "Window.h"
 #include "Label.h"
 #include "TextField.h"
+#include "SoundManager.h"
 
 #include "LUAImpl.h"
 
@@ -91,7 +91,9 @@ int Core::init(int argc, char* argv[])
     }
 
     // No script file provided
-    if (scriptName.length() == 0) {
+    if (scriptName.length() == 0)
+    {
+      printf("Error 1000: Missing launch script\n");
       exit(1000);
     }
   }
@@ -117,7 +119,7 @@ int Core::init(int argc, char* argv[])
   window->setMouseCursorVisible(false);
 
   renderer = new Renderer(this);
-  inputHandler = new InputHandler(this);
+  soundManager = new SoundManager(this);
   ui = new UI(this);
 
   renderer->setWallpaper(wallpaperIndex);
@@ -151,7 +153,7 @@ int Core::run()
     int keyEventsInARows = 0;
 
     Event event;
-      
+
     while (window->pollEvent(event))
     {
       if (event.type == Event::Closed) {
@@ -240,15 +242,39 @@ int Core::run()
           skipInput = true;
         }
 
-        if (scriptImplementation) {
-          scriptImplementation->key(event.key.code, true, keyHandled);
+        if (scriptImplementation)
+        {
+          Window * topWindow = ui->getTopWindow();
+
+          bool sendGlobalKeyEvent = true;
+
+          if (topWindow) {
+            sendGlobalKeyEvent = scriptImplementation->onWindowKey(topWindow, event.key.code, true);
+          }
+
+          if (sendGlobalKeyEvent) {
+            scriptImplementation->key(event.key.code, true, keyHandled);
+          } else {
+            keyHandled = true;
+          }
         }
       }
 
       else if (event.type == Event::KeyReleased)
       {
-          if (scriptImplementation) {
-              scriptImplementation->key(event.key.code, false, false);
+        if (scriptImplementation)
+        {
+          Window * topWindow = ui->getTopWindow();
+
+          bool sendGlobalKeyEvent = true;
+
+          if (topWindow) {
+            sendGlobalKeyEvent = !scriptImplementation->onWindowKey(topWindow, event.key.code, false);
+          }
+
+          if (sendGlobalKeyEvent) {
+            scriptImplementation->key(event.key.code, false, false);
+          }
         }
       }
 
@@ -258,7 +284,8 @@ int Core::run()
 
         TextField * focusedTextField = ui->getFocusedTextField();
 
-        if (focusedTextField) {
+        if (focusedTextField)
+        {
           focusedTextField->addInput(event.text.unicode);
         }
       }
@@ -341,7 +368,7 @@ int Core::close(int code)
 
 void Core::clear()
 {
-  delete inputHandler;
+  delete soundManager;
   delete renderer;
   delete ui;
 }

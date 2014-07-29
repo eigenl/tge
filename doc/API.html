@@ -325,8 +325,24 @@ myWindow.onClose(function(cancelled)<br/>
 end)<br/>
 </p>
 <p style="margin-left:3.0em; font-size:0.8em;">
-<u>cancelled</u> is a boolean argument telling if the window was closed by pressing 'Esc' (true) or not (false).
+Note: <u>cancelled</u> is a boolean argument telling if the window was closed by pressing 'Esc' (true) or not (false).
 </p>
+
+<br />
+
+<b>onKey(</b>callbackFunction<b>)</b>
+<i>This callback allows windows to receive key presses. Example:</i>
+<p style="margin-left:3.0em; font-size:0.8em; border:1px solid #808080;width:30%;padding:10px;background:#fdbfef;">
+myWindow.onKey(function(keyCode, pressed)<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;print("Key code:", keyCode, "Pressed:", pressed)<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;return true
+<br/>
+end)<br/>
+</p>
+<p style="margin-left:3.0em; font-size:0.8em;">
+Note: Return 'false' to prevent this key event from being sent any further. 
+</p>
+
 
 
 <h2>LuaTextField</h2>
