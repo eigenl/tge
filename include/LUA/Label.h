@@ -17,6 +17,17 @@ namespace tge
 
     LUNA_CLASS_HEADER_INSTANCE
 
+    int setId(lua_State * L)
+    {
+      obj->setId( lua_tointeger(L, 1) );
+      return 0;
+    }
+
+    int getId(lua_State * L)
+    {
+      lua_pushinteger(L, obj->getId());
+      return 1;
+    }
   };
 }
 

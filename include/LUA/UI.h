@@ -34,6 +34,7 @@ namespace tge
     int createConsole(lua_State * L)
     {
       sf::IntRect rectangle;
+      int id = 0;
 
       lua_pushnil(L);
       while (lua_next(L, -2) != 0)
@@ -43,10 +44,13 @@ namespace tge
         else  if (key == "y")       { rectangle.top = lua_tointeger(L, -1); }
         else  if (key == "width")   { rectangle.width = lua_tointeger(L, -1); }
         else  if (key == "height")  { rectangle.height = lua_tointeger(L, -1); }
+        else  if (key == "id")      { id = lua_tointeger(L, -1); }
         lua_pop(L, 1);
       }
 
       Console * console = obj->createConsole(rectangle);
+
+      console->setId(id);
 
       lua_pushlightuserdata(L, console);
 
@@ -62,6 +66,7 @@ namespace tge
       int width = 8;
       bool hidden = false;
       bool mainInput = false;
+      int id = 0;
 
       lua_pushnil(L);
 
@@ -77,6 +82,7 @@ namespace tge
         else  if (key == "parent")      { parent = (UIWidget *)lua_touserdata(L, -1); }
         else  if (key == "hidden")      { hidden = lua_toboolean(L, -1); }
         else  if (key == "mainInput")   { mainInput = lua_toboolean(L, -1); }
+        else  if (key == "id")          { id = lua_tointeger(L, -1); }
         lua_pop(L, 1);
       }
 
@@ -84,6 +90,7 @@ namespace tge
 
       tf->setInputPrefix(inputPrefix);
       tf->setIsHiddenField(hidden);
+      tf->setId(id);
 
       if (mainInput)
       {
@@ -104,6 +111,7 @@ namespace tge
       bool showDismissText = false;
       bool hasShadow = false;
       bool closable = true;
+      int id = 0;
 
       lua_pushnil(L);
       while (lua_next(L, -2) != 0)
@@ -119,6 +127,7 @@ namespace tge
         else  if (key == "showDismissText") { showDismissText = lua_toboolean(L, -1); }
         else  if (key == "shadow")          { hasShadow = lua_toboolean(L, -1); }
         else  if (key == "closable")        { closable = lua_toboolean(L, -1); }
+        else  if (key == "id")              { id = lua_tointeger(L, -1); }
         lua_pop(L, 1);
       }
 
@@ -126,6 +135,7 @@ namespace tge
 
       wnd->setShadowed(hasShadow);
       wnd->setIsClosable(closable);
+      wnd->setId(id);
 
       if (showDismissText) {
         obj->createLabel(wnd, L" [Enter ►] ", sf::Vector2u(rectangle.width - 14, rectangle.height - 1), dOpts);
@@ -143,6 +153,7 @@ namespace tge
       UIWidget * parent = 0;
       sf::Vector2u position;
       std::wstring text = L"";
+      int id = 0;
 
       lua_pushnil(L);
       while (lua_next(L, -2) != 0)
@@ -156,12 +167,14 @@ namespace tge
         else  if (key == "text")        { text = str::to_wcs(lua_tostring(L, -1)); }
         else  if (key == "color")       { dOpts.fg = lua_tointeger(L, -1); }
         else  if (key == "background")  { dOpts.bg = lua_tointeger(L, -1); }
+        else  if (key == "id")          { id = lua_tointeger(L, -1); }
         lua_pop(L, 1);
       }
 
       Label * lbl = obj->createLabel(parent, text, position, dOpts);
 
       lbl->setMaxWidth(maxWidth);
+      lbl->setId(id);
 
       lua_pushlightuserdata(L, lbl);
 

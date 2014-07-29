@@ -46,6 +46,8 @@
 <b>createConsole(</b>...<b>)</b>
 <i>Creates a console element. Arguments are passed in a LUA table. Possible arguments are:</i>
 <p style="margin-left:3.0em; font-size:0.8em; border:1px solid #808080;width:30%;padding:10px;">
+	<b>id</b> (int) <i>Identification tag. Default: <u>0</u></i>
+	<br />
 	<b>x</b> (int) <i>Top left column of the console</i>
 	<br />
 	<b>y</b> (int) <i>Top left row of the console</i>
@@ -61,6 +63,8 @@
 <i>Creates a window widget. Arguments are passed in a LUA table. Possible arguments are:</i>
 <p style="margin-left:3.0em; font-size:0.8em; border:1px solid #808080;width:30%;padding:10px;">
 	<b>parent</b> (ptr) <i>C pointer of the parent widget. Default: <u>null</u> which means the widget is added to UI root.</i>
+	<br />
+	<b>id</b> (int) <i>Identification tag. Default: <u>0</u></i>
 	<br />
 	<b>x</b> (int) <i>Top left column of the window relative to parent</i>
 	<br />
@@ -88,6 +92,8 @@
 <p style="margin-left:3.0em; font-size:0.8em; border:1px solid #808080;width:30%;padding:10px;">
 	<b>parent</b> (ptr) <i>C pointer of the parent widget. Default: <u>null</u> which means the widget is added to UI root.</i>
 	<br />
+	<b>id</b> (int) <i>Identification tag. Default: <u>0</u></i>
+	<br />
 	<b>x</b> (int) <i>Top left column of the text field relative to parent</i>
 	<br />
 	<b>y</b> (int) <i>Top left row of the text field relative to parent</i>
@@ -111,6 +117,8 @@
 <i>Creates a text field widget. Arguments are passed in a LUA table. Possible arguments are:</i>
 <p style="margin-left:3.0em; font-size:0.8em; border:1px solid #808080;width:30%;padding:10px;">
 	<b>parent</b> (ptr) <i>C pointer of the parent widget. Default: <u>null</u> which means the widget is added to UI root.</i>
+	<br />
+	<b>id</b> (int) <i>Identification tag. Default: <u>0</u></i>
 	<br />
 	<b>x</b> (int) <i>Top left column of the label relative to parent</i>
 	<br />
@@ -237,6 +245,15 @@
 	<b>value</b> (string) <i>1 character string to put on screen. If a longer string is passed only the first character is used.</i>
 </p>
 
+
+<h2>Utils</h2>
+
+
+<b>hash(</b>string<b>)</b> (int)
+<i>Perform a simple hash on the string returning an integer.</i>
+
+
+
 <h2>Color</h2>
 
 List of available colors:
@@ -286,6 +303,13 @@ List of available video modes:
 <i>Returns the underlying C pointer.</i>
 
 <br />
+<b>getId()</b> (int)
+<i></i>
+<br/>
+<b>setId(</b>id<b>)</b>
+<i></i>
+
+<br/>
 
 <b>close()</b>
 <i>Closes and deletes the window.</i>
@@ -309,6 +333,13 @@ end)<br/>
 
 <b>instance()</b>
 <i>Returns the underlying C pointer.</i>
+
+<br />
+<b>getId()</b> (int)
+<i></i>
+<br/>
+<b>setId(</b>id<b>)</b>
+<i></i>
 
 <br />
 
@@ -354,6 +385,15 @@ end)<br/>
 
 <h2>LuaLabel</h2>
 
+<b>instance()</b>
+<i>Returns the underlying C pointer.</i>
+<br />
+<b>getId()</b> (int)
+<i></i>
+<br/>
+<b>setId(</b>id<b>)</b>
+<i></i>
+
 <h2>Console</h2>
 
 <p style="background:#abfebd;font-size:0.8em; width:30%; padding:10px; line-height: 1.3em;">
@@ -362,6 +402,13 @@ Consoles display and wrap text. When the content overflows the console scrolls. 
 
 <b>instance()</b>
 <i>Returns the underlying C pointer.</i>
+
+<br />
+<b>getId()</b> (int)
+<i></i>
+<br/>
+<b>setId(</b>id<b>)</b>
+<i></i>
 
 <br />
 

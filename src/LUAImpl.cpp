@@ -8,6 +8,7 @@
 #include "lunar.h"
 
 #include "LUA/Core.h"
+#include "LUA/Utils.h"
 #include "LUA/UI.h"
 #include "LUA/Console.h"
 #include "LUA/ScreenBuffer.h"
@@ -54,6 +55,16 @@ LUNA_IMPL_PROPERTIES_NONE()
 #undef __LUNA_CLASS
 
 
+#define __LUNA_CLASS LuaUtils
+LUNA_IMPL_BEGIN(LuaUtils)
+LUNA_IMPL_FUNCTIONS() = {
+  LunaMethod(hash),
+  {0}
+};
+LUNA_IMPL_PROPERTIES_NONE()
+#undef __LUNA_CLASS
+
+
 #define __LUNA_CLASS LuaUI
 LUNA_IMPL_BEGIN(LuaUI)
 LUNA_IMPL_FUNCTIONS() = {
@@ -80,6 +91,8 @@ LUNA_IMPL_FUNCTIONS() = {
   LunaMethod(insert),
   LunaMethod(insertEmptyLine),
   LunaMethod(clear),
+  LunaMethod(setId),
+  LunaMethod(getId),
   {0}
 };
 LUNA_IMPL_PROPERTIES_NONE()
@@ -114,6 +127,8 @@ LUNA_IMPL_FUNCTIONS() = {
   LunaMethod(setText),
   LunaMethod(setInputPrefix),
   LunaMethod(onEnter),
+  LunaMethod(setId),
+  LunaMethod(getId),
   {0}
 };
 LUNA_IMPL_PROPERTIES_NONE()
@@ -126,6 +141,8 @@ LUNA_IMPL_FUNCTIONS() = {
   LunaMethod(instance),
   LunaMethod(close),
   LunaMethod(onClose),
+  LunaMethod(setId),
+  LunaMethod(getId),
   {0}
 };
 LUNA_IMPL_PROPERTIES_NONE()
@@ -136,6 +153,8 @@ LUNA_IMPL_PROPERTIES_NONE()
 LUNA_IMPL_BEGIN(LuaLabel)
 LUNA_IMPL_FUNCTIONS() = {
   LunaMethod(instance),
+  LunaMethod(setId),
+  LunaMethod(getId),
   {0}
 };
 LUNA_IMPL_PROPERTIES_NONE()
@@ -204,6 +223,7 @@ bool LUAImpl::init(const char * fileName)
   // Register classes
 
   Luna<LuaCore>::Register(state);
+  Luna<LuaUtils>::Register(state);
   Luna<LuaScreenBuffer>::Register(state);
   Luna<LuaUI>::Register(state);
   Luna<LuaConsole>::Register(state);
@@ -222,6 +242,9 @@ bool LUAImpl::init(const char * fileName)
 
   lua_pushlightuserdata(state, (void *)C->getUI());
   lua_setglobal(state, "gUI");
+
+  lua_pushlightuserdata(state, NULL);
+  lua_setglobal(state, "gUtils");
 
   // Register some consts
 

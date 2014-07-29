@@ -30,9 +30,9 @@ namespace tge
 
       virtual void display(const float frameTime);
 
-      inline void setID(int _id) { id = _id; }
+      inline void setId(int _id) { id = _id; }
 
-      inline int getID() { return id; }
+      inline int getId() { return id; }
 
       inline sf::IntRect * getRectangle() { return &rectangle; }
 

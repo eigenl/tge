@@ -31,6 +31,10 @@ namespace tge
 
       virtual ~Console();
 
+      inline void setId(int _id) { id = _id; }
+
+      inline int getId() { return id; }
+
       void setActive(bool _active) { active = _active; }
 
       bool isActive() { return active; }
@@ -46,6 +50,8 @@ namespace tge
     private:
 
       Core * C;
+
+      int id;
 
       std::vector<ConsoleLine> lines;
 

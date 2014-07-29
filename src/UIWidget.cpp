@@ -42,7 +42,7 @@ UIWidget * UIWidget::getChildWithID(int id)
 {
   for (unsigned int i = 0; i < children.size(); ++i)
   {
-    if (children[i]->getID() == id) {
+    if (children[i]->getId() == id) {
       return children[i];
     }
   }

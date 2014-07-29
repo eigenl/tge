@@ -13,7 +13,7 @@
 				<Option type="1" />
 				<Option compiler="gcc" />
 				<Option use_console_runner="0" />
-				<Option parameters='-script &quot;template/main&quot; -wallpaper 9' />
+				<Option parameters='-script &quot;lowrestextmode/main&quot;' />
 				<Compiler>
 					<Add option="-g" />
 					<Add directory="include" />

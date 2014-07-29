@@ -6,10 +6,9 @@
 using namespace tge;
 using namespace sf;
 
-Console::Console(Core * c, sf::IntRect rect) : C(c), rectangle(rect)
+Console::Console(Core * c, sf::IntRect rect) : C(c), id(0), rectangle(rect), active(false)
 {
   buffer = new ScreenBuffer(C, sf::Vector2u(rectangle.width, rectangle.height * 8));
-  active = false;
 }
 
 void Console::display()
@@ -21,8 +20,6 @@ void Console::display()
   }
 
   screenBuffer->clearRect(rectangle);
-
-  //screenBuffer->fillRect(rectangle, MAGNETA);
 
   buffer->clear();
 

@@ -35,7 +35,7 @@ std::string Utils::getPlatformSpecificResourcePath()
 
 #elif defined SFML_SYSTEM_LINUX
 
-  //If "data" folder is accessible from current working directory, then simply return "" as on Windows
+  // TODO: If "data" folder is accessible from current working directory, then simply return "" as on Windows
 
   return "/usr/share/tge/";
 
@@ -51,13 +51,13 @@ std::string Utils::getPlatformSpecificResourcePath()
 
 bool Utils::fileExists(const std::string& filename)
 {
-    struct stat buf;
+  struct stat buf;
 
-    if (stat(filename.c_str(), &buf) != -1)
-    {
-        return true;
-    }
-    return false;
+  if (stat(filename.c_str(), &buf) != -1) {
+      return true;
+  }
+
+  return false;
 }
 
 bool Utils::makeDirectory(std::string folderPath)

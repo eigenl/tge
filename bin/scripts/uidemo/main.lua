@@ -77,7 +77,7 @@ end
 
 function addTextFieldsWindow()
 
-	local window = LuaWindow(UI.createWindow({x = 15, y = 5, width = 50, height = 12, background = Color.Gray, color = Color.LightGray, showDismissText = true, shadow = true}))
+	local window = LuaWindow(UI.createWindow({id = Utils.hash("myWindow"), x = 15, y = 5, width = 50, height = 12, background = Color.Gray, color = Color.LightGray, showDismissText = true, shadow = true}))
 
 	UI.createLabel({parent = window.instance(), x = 2, y = 1, text = "Enter some text in the text fields below.", color = Color.Yellow})
 	UI.createLabel({parent = window.instance(), x = 2, y = 9, text = "Press [Enter] to continue.", color = Color.LightCyan})
@@ -101,6 +101,7 @@ function addTextFieldsWindow()
 	
 	window.onClose(function(cancelled)
 		if cancelled == false then
+			print("Window ID:", window.getId())
 			UI.showMessageBox("Here's what you entered in the text fields:\n\n1) "..tf1.getText().."\n2) "..tf2.getText())
 		end
 	end)
