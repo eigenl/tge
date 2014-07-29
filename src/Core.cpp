@@ -151,6 +151,7 @@ int Core::run()
     int keyEventsInARows = 0;
 
     Event event;
+      
     while (window->pollEvent(event))
     {
       if (event.type == Event::Closed) {
@@ -246,8 +247,8 @@ int Core::run()
 
       else if (event.type == Event::KeyReleased)
       {
-        if (scriptImplementation) {
-          scriptImplementation->key(event.key.code, false, false);
+          if (scriptImplementation) {
+              scriptImplementation->key(event.key.code, false, false);
         }
       }
 

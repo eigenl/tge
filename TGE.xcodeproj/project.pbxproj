@@ -7,6 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CF4778B01987B4450054926D /* sfml-audio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF4778AA1987B4450054926D /* sfml-audio.framework */; };
+		CF4778B11987B4450054926D /* sfml-graphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF4778AB1987B4450054926D /* sfml-graphics.framework */; };
+		CF4778B21987B4450054926D /* sfml-network.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF4778AC1987B4450054926D /* sfml-network.framework */; };
+		CF4778B31987B4450054926D /* sfml-system.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF4778AD1987B4450054926D /* sfml-system.framework */; };
+		CF4778B41987B4450054926D /* sfml-window.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF4778AE1987B4450054926D /* sfml-window.framework */; };
+		CF4778B51987B4450054926D /* SFML.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF4778AF1987B4450054926D /* SFML.framework */; };
+		CF4778B81987B44A0054926D /* freetype.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF4778B61987B44A0054926D /* freetype.framework */; };
+		CF4778B91987B44A0054926D /* sndfile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF4778B71987B44A0054926D /* sndfile.framework */; };
+		CF4778BA1987B45F0054926D /* freetype.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = CF4778B61987B44A0054926D /* freetype.framework */; };
+		CF4778BB1987B45F0054926D /* sndfile.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = CF4778B71987B44A0054926D /* sndfile.framework */; };
+		CF4778BC1987B45F0054926D /* sfml-audio.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = CF4778AA1987B4450054926D /* sfml-audio.framework */; };
+		CF4778BD1987B45F0054926D /* sfml-graphics.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = CF4778AB1987B4450054926D /* sfml-graphics.framework */; };
+		CF4778BE1987B45F0054926D /* sfml-network.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = CF4778AC1987B4450054926D /* sfml-network.framework */; };
+		CF4778BF1987B45F0054926D /* sfml-system.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = CF4778AD1987B4450054926D /* sfml-system.framework */; };
+		CF4778C01987B45F0054926D /* sfml-window.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = CF4778AE1987B4450054926D /* sfml-window.framework */; };
+		CF4778C11987B45F0054926D /* SFML.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = CF4778AF1987B4450054926D /* SFML.framework */; };
 		CFD6DE57198684B5005D9A8C /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFD6DE56198684B5005D9A8C /* Cocoa.framework */; };
 		CFD6DEB519868540005D9A8C /* Console.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CFD6DEA619868540005D9A8C /* Console.cpp */; };
 		CFD6DEB619868540005D9A8C /* Core.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CFD6DEA719868540005D9A8C /* Core.cpp */; };
@@ -59,20 +75,6 @@
 		CFD6DF2719868557005D9A8C /* readme.txt in Resources */ = {isa = PBXBuildFile; fileRef = CFD6DF0219868557005D9A8C /* readme.txt */; };
 		CFD6DF2819868557005D9A8C /* strutil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CFD6DF0319868557005D9A8C /* strutil.cpp */; };
 		CFD6DF2A19868675005D9A8C /* ResourceFolder.mm in Sources */ = {isa = PBXBuildFile; fileRef = CFD6DF2919868674005D9A8C /* ResourceFolder.mm */; };
-		CFD6DF30198686D3005D9A8C /* sfml-audio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFD6DF2B198686D3005D9A8C /* sfml-audio.framework */; };
-		CFD6DF31198686D3005D9A8C /* sfml-graphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFD6DF2C198686D3005D9A8C /* sfml-graphics.framework */; };
-		CFD6DF32198686D3005D9A8C /* sfml-system.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFD6DF2D198686D3005D9A8C /* sfml-system.framework */; };
-		CFD6DF33198686D3005D9A8C /* sfml-window.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFD6DF2E198686D3005D9A8C /* sfml-window.framework */; };
-		CFD6DF34198686D3005D9A8C /* SFML.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFD6DF2F198686D3005D9A8C /* SFML.framework */; };
-		CFD6DF37198686EA005D9A8C /* freetype.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFD6DF35198686EA005D9A8C /* freetype.framework */; };
-		CFD6DF38198686EA005D9A8C /* sndfile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFD6DF36198686EA005D9A8C /* sndfile.framework */; };
-		CFD6DF3A19868C09005D9A8C /* freetype.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = CFD6DF35198686EA005D9A8C /* freetype.framework */; };
-		CFD6DF3B19868C09005D9A8C /* sndfile.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = CFD6DF36198686EA005D9A8C /* sndfile.framework */; };
-		CFD6DF3C19868C09005D9A8C /* sfml-audio.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = CFD6DF2B198686D3005D9A8C /* sfml-audio.framework */; };
-		CFD6DF3D19868C09005D9A8C /* sfml-graphics.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = CFD6DF2C198686D3005D9A8C /* sfml-graphics.framework */; };
-		CFD6DF3E19868C09005D9A8C /* sfml-system.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = CFD6DF2D198686D3005D9A8C /* sfml-system.framework */; };
-		CFD6DF3F19868C09005D9A8C /* sfml-window.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = CFD6DF2E198686D3005D9A8C /* sfml-window.framework */; };
-		CFD6DF4019868C09005D9A8C /* SFML.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = CFD6DF2F198686D3005D9A8C /* SFML.framework */; };
 		CFD6DF4219868C83005D9A8C /* data in Resources */ = {isa = PBXBuildFile; fileRef = CFD6DF4119868C83005D9A8C /* data */; };
 		CFD6DF4419868CBC005D9A8C /* config.dat in Resources */ = {isa = PBXBuildFile; fileRef = CFD6DF4319868CBC005D9A8C /* config.dat */; };
 		CFD6DF4619868CE9005D9A8C /* scripts in Resources */ = {isa = PBXBuildFile; fileRef = CFD6DF4519868CE9005D9A8C /* scripts */; };
@@ -85,19 +87,28 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				CFD6DF3A19868C09005D9A8C /* freetype.framework in CopyFiles */,
-				CFD6DF3B19868C09005D9A8C /* sndfile.framework in CopyFiles */,
-				CFD6DF3C19868C09005D9A8C /* sfml-audio.framework in CopyFiles */,
-				CFD6DF3D19868C09005D9A8C /* sfml-graphics.framework in CopyFiles */,
-				CFD6DF3E19868C09005D9A8C /* sfml-system.framework in CopyFiles */,
-				CFD6DF3F19868C09005D9A8C /* sfml-window.framework in CopyFiles */,
-				CFD6DF4019868C09005D9A8C /* SFML.framework in CopyFiles */,
+				CF4778BA1987B45F0054926D /* freetype.framework in CopyFiles */,
+				CF4778BB1987B45F0054926D /* sndfile.framework in CopyFiles */,
+				CF4778BC1987B45F0054926D /* sfml-audio.framework in CopyFiles */,
+				CF4778BD1987B45F0054926D /* sfml-graphics.framework in CopyFiles */,
+				CF4778BE1987B45F0054926D /* sfml-network.framework in CopyFiles */,
+				CF4778BF1987B45F0054926D /* sfml-system.framework in CopyFiles */,
+				CF4778C01987B45F0054926D /* sfml-window.framework in CopyFiles */,
+				CF4778C11987B45F0054926D /* SFML.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		CF4778AA1987B4450054926D /* sfml-audio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "sfml-audio.framework"; path = "libs/sfml-osx/Frameworks/sfml-audio.framework"; sourceTree = "<group>"; };
+		CF4778AB1987B4450054926D /* sfml-graphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "sfml-graphics.framework"; path = "libs/sfml-osx/Frameworks/sfml-graphics.framework"; sourceTree = "<group>"; };
+		CF4778AC1987B4450054926D /* sfml-network.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "sfml-network.framework"; path = "libs/sfml-osx/Frameworks/sfml-network.framework"; sourceTree = "<group>"; };
+		CF4778AD1987B4450054926D /* sfml-system.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "sfml-system.framework"; path = "libs/sfml-osx/Frameworks/sfml-system.framework"; sourceTree = "<group>"; };
+		CF4778AE1987B4450054926D /* sfml-window.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "sfml-window.framework"; path = "libs/sfml-osx/Frameworks/sfml-window.framework"; sourceTree = "<group>"; };
+		CF4778AF1987B4450054926D /* SFML.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SFML.framework; path = "libs/sfml-osx/Frameworks/SFML.framework"; sourceTree = "<group>"; };
+		CF4778B61987B44A0054926D /* freetype.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = freetype.framework; path = "libs/sfml-osx/extlibs/freetype.framework"; sourceTree = "<group>"; };
+		CF4778B71987B44A0054926D /* sndfile.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = sndfile.framework; path = "libs/sfml-osx/extlibs/sndfile.framework"; sourceTree = "<group>"; };
 		CFD6DE53198684B5005D9A8C /* TGE.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TGE.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFD6DE56198684B5005D9A8C /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		CFD6DE5E198684B5005D9A8C /* TGE-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TGE-Info.plist"; sourceTree = "<group>"; };
@@ -203,13 +214,6 @@
 		CFD6DF0319868557005D9A8C /* strutil.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = strutil.cpp; sourceTree = "<group>"; };
 		CFD6DF0419868557005D9A8C /* strutil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = strutil.h; sourceTree = "<group>"; };
 		CFD6DF2919868674005D9A8C /* ResourceFolder.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ResourceFolder.mm; sourceTree = "<group>"; };
-		CFD6DF2B198686D3005D9A8C /* sfml-audio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "sfml-audio.framework"; path = "libs/sfml-2.1-osx/Frameworks/sfml-audio.framework"; sourceTree = "<group>"; };
-		CFD6DF2C198686D3005D9A8C /* sfml-graphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "sfml-graphics.framework"; path = "libs/sfml-2.1-osx/Frameworks/sfml-graphics.framework"; sourceTree = "<group>"; };
-		CFD6DF2D198686D3005D9A8C /* sfml-system.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "sfml-system.framework"; path = "libs/sfml-2.1-osx/Frameworks/sfml-system.framework"; sourceTree = "<group>"; };
-		CFD6DF2E198686D3005D9A8C /* sfml-window.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "sfml-window.framework"; path = "libs/sfml-2.1-osx/Frameworks/sfml-window.framework"; sourceTree = "<group>"; };
-		CFD6DF2F198686D3005D9A8C /* SFML.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SFML.framework; path = "libs/sfml-2.1-osx/Frameworks/SFML.framework"; sourceTree = "<group>"; };
-		CFD6DF35198686EA005D9A8C /* freetype.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = freetype.framework; path = "libs/sfml-2.1-osx/extlibs/freetype.framework"; sourceTree = "<group>"; };
-		CFD6DF36198686EA005D9A8C /* sndfile.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = sndfile.framework; path = "libs/sfml-2.1-osx/extlibs/sndfile.framework"; sourceTree = "<group>"; };
 		CFD6DF4119868C83005D9A8C /* data */ = {isa = PBXFileReference; lastKnownFileType = folder; name = data; path = bin/data; sourceTree = SOURCE_ROOT; };
 		CFD6DF4319868CBC005D9A8C /* config.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = config.dat; path = bin/config.dat; sourceTree = SOURCE_ROOT; };
 		CFD6DF4519868CE9005D9A8C /* scripts */ = {isa = PBXFileReference; lastKnownFileType = folder; name = scripts; path = bin/scripts; sourceTree = SOURCE_ROOT; };
@@ -221,13 +225,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				CFD6DE57198684B5005D9A8C /* Cocoa.framework in Frameworks */,
-				CFD6DF30198686D3005D9A8C /* sfml-audio.framework in Frameworks */,
-				CFD6DF31198686D3005D9A8C /* sfml-graphics.framework in Frameworks */,
-				CFD6DF32198686D3005D9A8C /* sfml-system.framework in Frameworks */,
-				CFD6DF33198686D3005D9A8C /* sfml-window.framework in Frameworks */,
-				CFD6DF37198686EA005D9A8C /* freetype.framework in Frameworks */,
-				CFD6DF38198686EA005D9A8C /* sndfile.framework in Frameworks */,
-				CFD6DF34198686D3005D9A8C /* SFML.framework in Frameworks */,
+				CF4778B01987B4450054926D /* sfml-audio.framework in Frameworks */,
+				CF4778B11987B4450054926D /* sfml-graphics.framework in Frameworks */,
+				CF4778B21987B4450054926D /* sfml-network.framework in Frameworks */,
+				CF4778B31987B4450054926D /* sfml-system.framework in Frameworks */,
+				CF4778B41987B4450054926D /* sfml-window.framework in Frameworks */,
+				CF4778B51987B4450054926D /* SFML.framework in Frameworks */,
+				CF4778B81987B44A0054926D /* freetype.framework in Frameworks */,
+				CF4778B91987B44A0054926D /* sndfile.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -254,13 +259,14 @@
 		CFD6DE55198684B5005D9A8C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				CFD6DF35198686EA005D9A8C /* freetype.framework */,
-				CFD6DF36198686EA005D9A8C /* sndfile.framework */,
-				CFD6DF2B198686D3005D9A8C /* sfml-audio.framework */,
-				CFD6DF2C198686D3005D9A8C /* sfml-graphics.framework */,
-				CFD6DF2D198686D3005D9A8C /* sfml-system.framework */,
-				CFD6DF2E198686D3005D9A8C /* sfml-window.framework */,
-				CFD6DF2F198686D3005D9A8C /* SFML.framework */,
+				CF4778B61987B44A0054926D /* freetype.framework */,
+				CF4778B71987B44A0054926D /* sndfile.framework */,
+				CF4778AA1987B4450054926D /* sfml-audio.framework */,
+				CF4778AB1987B4450054926D /* sfml-graphics.framework */,
+				CF4778AC1987B4450054926D /* sfml-network.framework */,
+				CF4778AD1987B4450054926D /* sfml-system.framework */,
+				CF4778AE1987B4450054926D /* sfml-window.framework */,
+				CF4778AF1987B4450054926D /* SFML.framework */,
 				CFD6DE56198684B5005D9A8C /* Cocoa.framework */,
 				CFD6DE58198684B5005D9A8C /* Other Frameworks */,
 			);
@@ -452,10 +458,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CFD6DE84198684B5005D9A8C /* Build configuration list for PBXNativeTarget "TGE" */;
 			buildPhases = (
+				CF4778A91987B1B50054926D /* ShellScript */,
 				CFD6DE4F198684B5005D9A8C /* Sources */,
 				CFD6DE50198684B5005D9A8C /* Frameworks */,
 				CFD6DE51198684B5005D9A8C /* Resources */,
 				CFD6DF3919868BFF005D9A8C /* CopyFiles */,
+				CF4778C21987B46C0054926D /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -508,6 +516,35 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		CF4778A91987B1B50054926D /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "touch -cm ${SRCROOT}/bin/scripts";
+		};
+		CF4778C21987B46C0054926D /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "install_name_tool -change /opt/X11/lib/libfreetype.6.dylib @executable_path/../Frameworks/libfreetype.dylib bin/TGE.app/Contents/MacOS/TGE";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		CFD6DE4F198684B5005D9A8C /* Sources */ = {
@@ -652,6 +689,8 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/libs/sfml-2.1-osx/Frameworks",
 					"$(PROJECT_DIR)/libs/sfml-2.1-osx/extlibs",
+					"$(PROJECT_DIR)/libs/sfml-osx/Frameworks",
+					"$(PROJECT_DIR)/libs/sfml-osx/extlibs",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TGE-Prefix.pch";
@@ -686,6 +725,8 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/libs/sfml-2.1-osx/Frameworks",
 					"$(PROJECT_DIR)/libs/sfml-2.1-osx/extlibs",
+					"$(PROJECT_DIR)/libs/sfml-osx/Frameworks",
+					"$(PROJECT_DIR)/libs/sfml-osx/extlibs",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TGE-Prefix.pch";

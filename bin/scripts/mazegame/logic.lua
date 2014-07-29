@@ -22,7 +22,7 @@ end
 
 GameObject.onKey = function (keyCode, pressed, handled)
 
-	-- print("Key code:", keyCode, "Pressed:", pressed, "Handled:", handled)
+	print("Key code:", keyCode, "Pressed:", pressed, "Handled:", handled)
 	
 	Player.handleKey(keyCode, pressed)
 	

@@ -100,7 +100,7 @@ void Renderer::setWallpaper(int wallpaperNumber)
 {
   char buf[128];
   sprintf(buf, "data/wallpapers/%d.png", wallpaperNumber);
-
+    
   if (wallpaperTexture) {
     delete wallpaperTexture;
   }

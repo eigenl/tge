@@ -25,7 +25,15 @@ Player.draw = function ()
 	local top = math.floor((25 - Map.Height) / 2)
 	
 	Screen.print({x = left + (Player.X * 2), y = top + Player.Y, text = "[•]", color = Color.White})
+
+
+    local mu = fif(Player.MoveUp == true, "1", "0")
+    local md = fif(Player.MoveDown == true, "1", "0")
+    local ml = fif(Player.MoveLeft == true, "1", "0")
+    local mr = fif(Player.MoveRight == true, "1", "0")
+
 	
+    Screen.print({y = 23, text = "MOV: "..mu.." "..md.." "..ml.." "..mr, color = Color.LightRed})
 	Screen.print({y = 24, text = "POS: "..Player.X.." "..Player.Y, color = Color.LightRed})
 
 end
