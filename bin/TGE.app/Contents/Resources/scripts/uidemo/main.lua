@@ -30,7 +30,7 @@ function start()
 	local keyWindow = LuaWindow(UI.createWindow({x = 5, y = 11, width = 38, height = 12, background = Color.Red, color = Color.LightRed, closable = false}))
 	
 	UI.createLabel({parent = keyWindow.instance(), x = 2, y = 1, text = "Some keys:", color = Color.Yellow})
-	UI.createLabel({parent = keyWindow.instance(), x = 2, y = 3, text = "F1 - Add empty window\nF2 - Add window with text fields\nF3 - Show a message box\nESC - Close the demo", color = Color.White})
+	UI.createLabel({parent = keyWindow.instance(), x = 2, y = 3, text = "F1 - Add empty window\nF2 - Add window with text fields\nF3 - Window key listener\nF4 - Show a message box\nESC - Close the demo", color = Color.White})
 
 end
 
@@ -59,6 +59,10 @@ function key(keyCode, pressed, handled)
 		
 	-- F3
 	elseif keyCode == 87 and pressed then
+		addKeyWindow()		
+		
+	-- F4
+	elseif keyCode == 88 and pressed then
 		addMessageBox()
 	
 	-- ESC
@@ -98,13 +102,35 @@ function addTextFieldsWindow()
 	tf2.onEnter(function(text)
 		window.close()
 	end)
-	
+
 	window.onClose(function(cancelled)
 		if cancelled == false then
 			print("Window ID:", window.getId())
 			UI.showMessageBox("Here's what you entered in the text fields:\n\n1) "..tf1.getText().."\n2) "..tf2.getText())
 		end
 	end)
+end
+
+function addKeyWindow()
+
+	local window = LuaWindow(UI.createWindow({x = 30, y = 5, width = 45, height = 12, background = Color.Green, color = Color.LightGreen, showDismissText = true, shadow = true}))
+	
+	UI.createLabel({parent = window.instance(), x = 2, y = 1, text = "Make your choice:\n\nA) Option 1\nB) Option 2\nX) Close window", color = Color.White})
+	
+	window.onKey(function(keyCode, pressed)
+		if pressed then
+			if keyCode == 0 then
+				UI.showMessageBox("You picked option 1")
+			elseif keyCode == 1 then
+				UI.showMessageBox("You picked option 2")
+			elseif keyCode == 23 then
+				window.close()
+				return false
+			end
+		end
+		return true
+	end)
+	
 end
 
 function addMessageBox()

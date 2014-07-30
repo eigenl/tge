@@ -2,7 +2,6 @@
 #include <fstream>
 
 #include "Utils.h"
-#include "ResourceFolder.h"
 
 #include <dirent.h>
 
@@ -12,6 +11,8 @@
   #ifdef VISUAL_STUDIO_BUILD
     #include "direct.h"
   #endif
+#elif defined(SFML_SYSTEM_MACOS)
+    #include "ResourceFolder.h"
 #endif
 
 #include <sys/stat.h>

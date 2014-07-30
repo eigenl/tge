@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CF11B3F11988D87F004F2BA8 /* SoundManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CF11B3F01988D87F004F2BA8 /* SoundManager.cpp */; };
 		CF4778B01987B4450054926D /* sfml-audio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF4778AA1987B4450054926D /* sfml-audio.framework */; };
 		CF4778B11987B4450054926D /* sfml-graphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF4778AB1987B4450054926D /* sfml-graphics.framework */; };
 		CF4778B21987B4450054926D /* sfml-network.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF4778AC1987B4450054926D /* sfml-network.framework */; };
@@ -26,13 +27,11 @@
 		CFD6DE57198684B5005D9A8C /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFD6DE56198684B5005D9A8C /* Cocoa.framework */; };
 		CFD6DEB519868540005D9A8C /* Console.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CFD6DEA619868540005D9A8C /* Console.cpp */; };
 		CFD6DEB619868540005D9A8C /* Core.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CFD6DEA719868540005D9A8C /* Core.cpp */; };
-		CFD6DEB819868540005D9A8C /* InputHandler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CFD6DEA919868540005D9A8C /* InputHandler.cpp */; };
 		CFD6DEB919868540005D9A8C /* Label.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CFD6DEAA19868540005D9A8C /* Label.cpp */; };
 		CFD6DEBA19868540005D9A8C /* LUAImpl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CFD6DEAB19868540005D9A8C /* LUAImpl.cpp */; };
 		CFD6DEBB19868540005D9A8C /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CFD6DEAC19868540005D9A8C /* main.cpp */; };
 		CFD6DEBC19868540005D9A8C /* Renderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CFD6DEAD19868540005D9A8C /* Renderer.cpp */; };
 		CFD6DEBD19868540005D9A8C /* ScreenBuffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CFD6DEAE19868540005D9A8C /* ScreenBuffer.cpp */; };
-		CFD6DEBE19868540005D9A8C /* ScriptingInterface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CFD6DEAF19868540005D9A8C /* ScriptingInterface.cpp */; };
 		CFD6DEBF19868540005D9A8C /* TextField.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CFD6DEB019868540005D9A8C /* TextField.cpp */; };
 		CFD6DEC019868540005D9A8C /* UI.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CFD6DEB119868540005D9A8C /* UI.cpp */; };
 		CFD6DEC119868540005D9A8C /* UIWidget.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CFD6DEB219868540005D9A8C /* UIWidget.cpp */; };
@@ -101,6 +100,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		CF11B3F01988D87F004F2BA8 /* SoundManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SoundManager.cpp; sourceTree = "<group>"; };
 		CF4778AA1987B4450054926D /* sfml-audio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "sfml-audio.framework"; path = "libs/sfml-osx/Frameworks/sfml-audio.framework"; sourceTree = "<group>"; };
 		CF4778AB1987B4450054926D /* sfml-graphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "sfml-graphics.framework"; path = "libs/sfml-osx/Frameworks/sfml-graphics.framework"; sourceTree = "<group>"; };
 		CF4778AC1987B4450054926D /* sfml-network.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "sfml-network.framework"; path = "libs/sfml-osx/Frameworks/sfml-network.framework"; sourceTree = "<group>"; };
@@ -116,7 +116,6 @@
 		CFD6DE8B19868540005D9A8C /* Colors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Colors.h; sourceTree = "<group>"; };
 		CFD6DE8C19868540005D9A8C /* Console.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Console.h; sourceTree = "<group>"; };
 		CFD6DE8D19868540005D9A8C /* Core.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Core.h; sourceTree = "<group>"; };
-		CFD6DE8F19868540005D9A8C /* InputHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputHandler.h; sourceTree = "<group>"; };
 		CFD6DE9019868540005D9A8C /* Label.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Label.h; sourceTree = "<group>"; };
 		CFD6DE9219868540005D9A8C /* Console.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Console.h; sourceTree = "<group>"; };
 		CFD6DE9319868540005D9A8C /* Core.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Core.h; sourceTree = "<group>"; };
@@ -139,13 +138,11 @@
 		CFD6DEA419868540005D9A8C /* Window.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Window.h; sourceTree = "<group>"; };
 		CFD6DEA619868540005D9A8C /* Console.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Console.cpp; sourceTree = "<group>"; };
 		CFD6DEA719868540005D9A8C /* Core.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Core.cpp; sourceTree = "<group>"; };
-		CFD6DEA919868540005D9A8C /* InputHandler.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = InputHandler.cpp; sourceTree = "<group>"; };
 		CFD6DEAA19868540005D9A8C /* Label.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Label.cpp; sourceTree = "<group>"; };
 		CFD6DEAB19868540005D9A8C /* LUAImpl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LUAImpl.cpp; sourceTree = "<group>"; };
 		CFD6DEAC19868540005D9A8C /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		CFD6DEAD19868540005D9A8C /* Renderer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Renderer.cpp; sourceTree = "<group>"; };
 		CFD6DEAE19868540005D9A8C /* ScreenBuffer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ScreenBuffer.cpp; sourceTree = "<group>"; };
-		CFD6DEAF19868540005D9A8C /* ScriptingInterface.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ScriptingInterface.cpp; sourceTree = "<group>"; };
 		CFD6DEB019868540005D9A8C /* TextField.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TextField.cpp; sourceTree = "<group>"; };
 		CFD6DEB119868540005D9A8C /* UI.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UI.cpp; sourceTree = "<group>"; };
 		CFD6DEB219868540005D9A8C /* UIWidget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UIWidget.cpp; sourceTree = "<group>"; };
@@ -310,7 +307,6 @@
 				CFD6DE8B19868540005D9A8C /* Colors.h */,
 				CFD6DE8C19868540005D9A8C /* Console.h */,
 				CFD6DE8D19868540005D9A8C /* Core.h */,
-				CFD6DE8F19868540005D9A8C /* InputHandler.h */,
 				CFD6DE9019868540005D9A8C /* Label.h */,
 				CFD6DE9919868540005D9A8C /* LUAImpl.h */,
 				CFD6DE9A19868540005D9A8C /* lunar.h */,
@@ -347,19 +343,18 @@
 			children = (
 				CFD6DEA619868540005D9A8C /* Console.cpp */,
 				CFD6DEA719868540005D9A8C /* Core.cpp */,
-				CFD6DEA919868540005D9A8C /* InputHandler.cpp */,
 				CFD6DEAA19868540005D9A8C /* Label.cpp */,
 				CFD6DEAB19868540005D9A8C /* LUAImpl.cpp */,
 				CFD6DEAC19868540005D9A8C /* main.cpp */,
 				CFD6DEAD19868540005D9A8C /* Renderer.cpp */,
 				CFD6DEAE19868540005D9A8C /* ScreenBuffer.cpp */,
-				CFD6DEAF19868540005D9A8C /* ScriptingInterface.cpp */,
 				CFD6DEB019868540005D9A8C /* TextField.cpp */,
 				CFD6DEB119868540005D9A8C /* UI.cpp */,
 				CFD6DEB219868540005D9A8C /* UIWidget.cpp */,
 				CFD6DEB319868540005D9A8C /* Utils.cpp */,
 				CFD6DEB419868540005D9A8C /* Window.cpp */,
 				CFD6DF2919868674005D9A8C /* ResourceFolder.mm */,
+				CF11B3F01988D87F004F2BA8 /* SoundManager.cpp */,
 			);
 			path = src;
 			sourceTree = SOURCE_ROOT;
@@ -553,6 +548,7 @@
 			files = (
 				CFD6DF1E19868557005D9A8C /* lstrlib.c in Sources */,
 				CFD6DF1019868557005D9A8C /* lfunc.c in Sources */,
+				CF11B3F11988D87F004F2BA8 /* SoundManager.cpp in Sources */,
 				CFD6DF2019868557005D9A8C /* ltablib.c in Sources */,
 				CFD6DF2819868557005D9A8C /* strutil.cpp in Sources */,
 				CFD6DF0A19868557005D9A8C /* lcorolib.c in Sources */,
@@ -561,7 +557,6 @@
 				CFD6DF0D19868557005D9A8C /* ldebug.c in Sources */,
 				CFD6DEC019868540005D9A8C /* UI.cpp in Sources */,
 				CFD6DF2319868557005D9A8C /* lvm.c in Sources */,
-				CFD6DEBE19868540005D9A8C /* ScriptingInterface.cpp in Sources */,
 				CFD6DF1F19868557005D9A8C /* ltable.c in Sources */,
 				CFD6DF2119868557005D9A8C /* ltm.c in Sources */,
 				CFD6DF1819868557005D9A8C /* lobject.c in Sources */,
@@ -596,7 +591,6 @@
 				CFD6DF1A19868557005D9A8C /* loslib.c in Sources */,
 				CFD6DF0519868557005D9A8C /* lapi.c in Sources */,
 				CFD6DEBA19868540005D9A8C /* LUAImpl.cpp in Sources */,
-				CFD6DEB819868540005D9A8C /* InputHandler.cpp in Sources */,
 				CFD6DF0719868557005D9A8C /* lbaselib.c in Sources */,
 				CFD6DF0919868557005D9A8C /* lcode.c in Sources */,
 			);

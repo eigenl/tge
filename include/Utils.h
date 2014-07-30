@@ -1,7 +1,8 @@
 #ifndef Pioneers_Utils_h
 #define Pioneers_Utils_h
 
-#include "ResourceFolder.h"
+#include <vector>
+#include <string>
 
 // For convinience
 #define DEG_TO_RAD (3.14159265 / 180.0)
