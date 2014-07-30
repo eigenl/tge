@@ -1,10 +1,13 @@
 #script
 uidemo/main
 #wallpaper
-12
+10
 #width
 1280
 #height
 720
 #fullscreen
 0
+// Possible values are: default, fullFill & fullFit
+#style
+default

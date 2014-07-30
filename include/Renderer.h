@@ -20,13 +20,22 @@ namespace tge
         VideoModeCount
       };
 
+      enum ScreenStyle
+      {
+        Normal = 0,
+        FullFill,
+        FullFit
+      };
+
       Renderer(Core * c);
 
       virtual ~Renderer();
 
       void setVideoMode(VideoMode mode);
+      void setScreenStyle(ScreenStyle style);
 
       inline VideoMode getVideoMode() { return videoMode; }
+      inline ScreenStyle getScreenStyle() { return screenStyle; }
 
       void draw();
 
@@ -39,6 +48,7 @@ namespace tge
       Core * C;
 
       VideoMode videoMode;
+      ScreenStyle screenStyle;
 
       ScreenBuffer * screenBuffer;
 
@@ -53,6 +63,8 @@ namespace tge
       void drawWallpaper();
       void drawMonitor();
       void drawScreenBuffer();
+      void drawScreenBufferFullScreen();
+      void drawScreenBufferNormal();
 
       std::vector<sf::Color> colors;
   };

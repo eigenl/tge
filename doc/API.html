@@ -20,6 +20,12 @@
 <b>getVideoMode()</b>
 <i>Returns current video mode. See <a href="#videomodes">available modes</a>.</i>
 <br />
+<b>setDisplayStyle(</b>style<b>)</b>
+<i>Set display style. See <a href="#displaystyles">available styles</a>. Default: <u>DisplayStyle.Default</u></i>
+<br />
+<b>getDisplayStyle()</b>
+<i>Returns current display style. See <a href="#displaystyles">available styles</a>.</i>
+<br />
 <b>setWindowTitle(</b>title<b>)</b>
 <i>Set the application window title</i>
 <br />
@@ -294,6 +300,35 @@ List of available video modes:
 </ul>
 
 <br/>
+
+<a name="displaystyles"></a>
+<h2>DisplayStyle</h2>
+
+List of available display styles:
+
+<br/>
+
+<ul>
+	<li>DisplayStyle.Default</li>
+	<span style="color:#808080;">Regular style with wallpaper and monitor</span>
+	<li>DisplayStyle.FullFill</li>
+	<span style="color:#808080;">Fullscreen with content scaled to fill current window size.<br />
+	If wallpaper index is > 0 wallpaper is also drawn. Set wallpaper index to -1 to disable it.</span>
+	<li>DisplayStyle.FullFit</li>
+	<span style="color:#808080;">Fullscreen with content scaled to window height using 4:3 aspect ratio</span>
+</ul>
+<br/>
+When using the configuration file or command line parameters the styles are named like this:
+<ul>
+	<li>"default"</li>
+	<li>"fullFill"</li>
+	<li>"fullFit"</li>
+</ul>
+
+<br/>
+<br/>
+
+
 
 <h1>Objects</h1>
 

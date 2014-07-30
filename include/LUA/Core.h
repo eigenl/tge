@@ -48,6 +48,19 @@ namespace tge
       lua_pushinteger(L, obj->getRenderer()->getVideoMode());
       return 1;
     }
+
+    int setDisplayStyle(lua_State * L)
+    {
+      Renderer::ScreenStyle style = (Renderer::ScreenStyle)lua_tointeger(L, 1);
+      obj->getRenderer()->setScreenStyle(style);
+      return 0;
+    }
+
+    int getDisplayStyle(lua_State * L)
+    {
+      lua_pushinteger(L, obj->getRenderer()->getScreenStyle());
+      return 1;
+    }
   };
 }
 

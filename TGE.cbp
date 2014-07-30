@@ -32,7 +32,7 @@
 				<Option object_output="obj/" />
 				<Option type="0" />
 				<Option compiler="gcc" />
-				<Option parameters='-script &quot;uidemo/main&quot;' />
+				<Option parameters='-script &quot;lowrestextmode/main&quot;' />
 				<Compiler>
 					<Add option="-fexpensive-optimizations" />
 					<Add option="-Os" />

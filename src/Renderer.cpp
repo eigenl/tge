@@ -17,6 +17,8 @@ Renderer::Renderer(Core * c) : C(c)
   wallpaperSprite = 0;
   screenBuffer = 0;
 
+  screenStyle = ScreenStyle::Normal;
+
   monitorTexture = new Texture();
   monitorTexture->loadFromFile(Utils::getPlatformSpecificResourcePath() + "data/monitor.png");
 
@@ -96,11 +98,34 @@ void Renderer::setVideoMode(VideoMode mode)
   return;
 }
 
+void Renderer::setScreenStyle(ScreenStyle style)
+{
+  screenStyle = style;
+
+  C->redraw();
+}
+
 void Renderer::setWallpaper(int wallpaperNumber)
 {
+  if (wallpaperTexture)
+  {
+    delete wallpaperTexture;
+    wallpaperTexture = 0;
+  }
+
+  if (wallpaperSprite)
+  {
+    delete wallpaperSprite;
+    wallpaperSprite = 0;
+  }
+
+  if (wallpaperNumber < 0) {
+    return;
+  }
+
   char buf[128];
   sprintf(buf, "data/wallpapers/%d.png", wallpaperNumber);
-    
+
   if (wallpaperTexture) {
     delete wallpaperTexture;
   }
@@ -119,8 +144,47 @@ void Renderer::setWallpaper(int wallpaperNumber)
 
 void Renderer::draw()
 {
-  drawWallpaper();
-  drawMonitor();
+  if (screenStyle == ScreenStyle::Normal)
+  {
+    if (wallpaperSprite && wallpaperTexture) {
+      drawWallpaper();
+    } else {
+      C->getContext()->clear(colors[BLACK]);
+    }
+
+    drawMonitor();
+  }
+  else if (screenStyle == ScreenStyle::FullFit)
+  {
+    if (wallpaperSprite && wallpaperTexture)
+    {
+      drawWallpaper();
+
+      sf::Vector2u windowSize = C->getContext()->getSize();
+      int fitWidth = windowSize.y / (3.f / 4);
+      int edge = (windowSize.x - fitWidth) / 2;
+
+      sf::RectangleShape backgroundRectangle;
+
+      sf::Color bgColor = colors[BLACK];
+      bgColor.a = 255;
+
+      backgroundRectangle.setFillColor(bgColor);
+      backgroundRectangle.setPosition(edge, 0);
+      backgroundRectangle.setSize(sf::Vector2f(windowSize.x - edge * 2, windowSize.y));
+
+      C->getContext()->draw(backgroundRectangle);
+    }
+    else
+    {
+      C->getContext()->clear(colors[BLACK]);
+    }
+  }
+  else if (screenStyle == ScreenStyle::FullFill)
+  {
+    C->getContext()->clear(colors[BLACK]);
+  }
+
   drawScreenBuffer();
 
   C->getContext()->display();
@@ -164,8 +228,6 @@ void Renderer::drawScreenBuffer()
 {
   sf::RenderWindow * renderWindow = C->getContext();
 
-  Vector2u topLeftGlobal = Vector2u((int(renderWindow->getSize().x - 1280) / 2) + 272,
-                                    int(renderWindow->getSize().y - 720) + 149);
   Vector2i topLeft = Vector2i(0, UpscaleFactor);
   Vector2i glyphSize = Vector2i(8 * UpscaleFactor, 12 * UpscaleFactor);
 
@@ -213,21 +275,29 @@ void Renderer::drawScreenBuffer()
 
   screenRenderTexture[videoMode].display();
 
+  switch (screenStyle)
+  {
+    case ScreenStyle::FullFill:
+    case ScreenStyle::FullFit:
+      drawScreenBufferFullScreen();
+      break;
 
-  // Texture sprTex = screenRenderTexture.getTexture();
-  // sprTex.setSmooth(true);
+    default:
+      drawScreenBufferNormal();
+      break;
+  }
 
-  /*Sprite spr(sprTex);
+  return;
+}
 
-  spr.setPosition(topLeftGlobal.x, topLeftGlobal.y);
-  spr.setScale(1.0f / UpscaleFactor, 1.5f / UpscaleFactor);
+void Renderer::drawScreenBufferNormal()
+{
+  sf::RenderWindow * renderWindow = C->getContext();
 
-  renderWindow->draw(spr);
-
-  return;*/
+  Vector2u topLeftGlobal = Vector2u((int(renderWindow->getSize().x - 1280) / 2) + 272,
+                                     int(renderWindow->getSize().y - 720) + 149);
 
   float yScale = 1.5;
-
   bool deform = true;
 
   sf::VertexArray quad(sf::Quads, 16);
@@ -310,7 +380,6 @@ void Renderer::drawScreenBuffer()
   quad[14].texCoords = sf::Vector2f(640, (300 + RenderTextureBottomPadding));
   quad[15].texCoords = sf::Vector2f(480, (300 + RenderTextureBottomPadding));
 
-
   const float xScaleFactor = (videoMode == Renderer::VideoMode::Text_80x25 ? 1 : 0.5);
 
   for (int i = 0; i < 16; ++i)
@@ -323,56 +392,43 @@ void Renderer::drawScreenBuffer()
     quad[i].position += Vector2f(topLeftGlobal.x, topLeftGlobal.y);
   }
 
-  /*int gridX = 4;
-  int gridY = 4;
-  int gridWidth = 640 / gridX;
-  int gridHeight = (300 + RenderTextureBottomPadding) / gridY;
+  renderWindow->draw(quad, &screenRenderTexture[videoMode].getTexture());
 
-  int verticeCount = 4 * gridWidth * gridHeight;
+  return;
+}
 
-  sf::VertexArray quad(sf::Quads, verticeCount);
+void Renderer::drawScreenBufferFullScreen()
+{
+  sf::RenderWindow * renderWindow = C->getContext();
 
-  int i = 0;
+  sf::VertexArray quad(sf::Quads, 4);
 
-  for (int y = 0; y < gridY; ++y)
+  sf::Vector2u windowSize = renderWindow->getSize();
+
+  if (screenStyle == ScreenStyle::FullFill)
   {
-    for (int x = 0; x < gridX; ++x)
-    {
-      IntRect r = IntRect(x * gridWidth, y * gridHeight, gridWidth, gridHeight);
+    quad[0].position = sf::Vector2f(0, 0);
+    quad[1].position = sf::Vector2f(windowSize.x, 0);
+    quad[2].position = sf::Vector2f(windowSize.x, windowSize.y);
+    quad[3].position = sf::Vector2f(0, windowSize.y);
+  }
+  else
+  {
+    int fitWidth = windowSize.y / (3.f / 4);
+    int edge = (windowSize.x - fitWidth) / 2;
 
-      quad[i+0].position = sf::Vector2f(r.left, r.top);
-      quad[i+1].position = sf::Vector2f(r.left + r.width, r.top);
-      quad[i+2].position = sf::Vector2f(r.left + r.width, r.top + r.height);
-      quad[i+3].position = sf::Vector2f(r.left, r.top + r.height);
-
-      quad[i+0].texCoords = sf::Vector2f(r.left, r.top);
-      quad[i+1].texCoords = sf::Vector2f(r.left + r.width, r.top);
-      quad[i+2].texCoords = sf::Vector2f(r.left + r.width, r.top + r.height);
-      quad[i+3].texCoords = sf::Vector2f(r.left, r.top + r.height);
-
-      i += 4;
-    }
+    quad[0].position = sf::Vector2f(edge, 0);
+    quad[1].position = sf::Vector2f(windowSize.x - edge, 0);
+    quad[2].position = sf::Vector2f(windowSize.x - edge, windowSize.y);
+    quad[3].position = sf::Vector2f(edge, windowSize.y);
   }
 
-  for (int i = 0; i < verticeCount; ++i)
-  {
-    float absDistMidX = 1.0f - (fabsf(320.f - quad[i].position.x) / 320.f);
+  const float xScaleFactor = (videoMode == Renderer::VideoMode::Text_80x25 ? 1 : 0.5);
 
-    quad[i].position.y -= absDistMidX * 4;
-
-
-    quad[i].texCoords.x *= UpscaleFactor;
-    quad[i].texCoords.y *= UpscaleFactor;
-
-    quad[i].position.y *= yScale;
-
-    quad[i].position += Vector2f(topLeftGlobal.x, topLeftGlobal.y);
-  }*/
-
-
-  // glowShader.setParameter("texture", screenRenderTexture.getTexture());
-  // renderWindow->draw(quad, &glowShader);
-
+  quad[0].texCoords = sf::Vector2f(0, 0);
+  quad[1].texCoords = sf::Vector2f(1280 * xScaleFactor, 0);
+  quad[2].texCoords = sf::Vector2f(1280 * xScaleFactor, 600);
+  quad[3].texCoords = sf::Vector2f(0, 600);
 
   renderWindow->draw(quad, &screenRenderTexture[videoMode].getTexture());
 

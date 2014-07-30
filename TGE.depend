@@ -447,7 +447,7 @@
 	<SFML/Window.hpp>
 	"Shared.h"
 
-1406581048 c:\users\eigen\gamedev\tge\include\renderer.h
+1406742880 c:\users\eigen\gamedev\tge\include\renderer.h
 	"Shared.h"
 
 1406581329 c:\users\eigen\gamedev\tge\include\screenbuffer.h
@@ -455,7 +455,7 @@
 	<string>
 	"Shared.h"
 
-1406660349 source:c:\users\eigen\gamedev\tge\src\core.cpp
+1406745101 source:c:\users\eigen\gamedev\tge\src\core.cpp
 	"Core.h"
 	"Renderer.h"
 	"ScreenBuffer.h"
@@ -523,8 +523,9 @@
 	"Utils.h"
 	"InputHandler.h"
 
-1396451485 c:\users\eigen\gamedev\tge\include\utils.h
-	"ResourceFolder.h"
+1406738668 c:\users\eigen\gamedev\tge\include\utils.h
+	<vector>
+	<string>
 
 1395249449 c:\users\eigen\gamedev\tge\include\resourcefolder.h
 	<string>
@@ -554,7 +555,7 @@
 	"Shared.h"
 	"TextField.h"
 
-1406643660 source:c:\users\eigen\gamedev\tge\src\renderer.cpp
+1406743992 source:c:\users\eigen\gamedev\tge\src\renderer.cpp
 	"Core.h"
 	"Renderer.h"
 	"ScreenBuffer.h"
@@ -591,14 +592,14 @@
 1406614882 source:c:\users\eigen\gamedev\tge\src\uiwidget.cpp
 	"UIWidget.h"
 
-1406614206 source:c:\users\eigen\gamedev\tge\src\utils.cpp
+1406738668 source:c:\users\eigen\gamedev\tge\src\utils.cpp
 	<iostream>
 	<fstream>
 	"Utils.h"
-	"ResourceFolder.h"
 	<dirent.h>
 	<SFML/System.hpp>
 	"direct.h"
+	"ResourceFolder.h"
 	<sys/stat.h>
 	<math.h>
 	<sstream>
@@ -1537,7 +1538,7 @@
 	"lua/lualib.h"
 	"lua/lstate.h"
 
-1406660954 source:c:\users\eigen\gamedev\tge\src\luaimpl.cpp
+1406743398 source:c:\users\eigen\gamedev\tge\src\luaimpl.cpp
 	"LUAImpl.h"
 	"Core.h"
 	"Renderer.h"
@@ -1565,7 +1566,7 @@
 	"lua/lauxlib.h"
 	<cstring>
 
-1406567204 c:\users\eigen\gamedev\tge\include\lua\core.h
+1406743301 c:\users\eigen\gamedev\tge\include\lua\core.h
 	<Core.h>
 	<Renderer.h>
 	"lunar.h"

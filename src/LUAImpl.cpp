@@ -49,6 +49,8 @@ LUNA_IMPL_FUNCTIONS() = {
   LunaMethod(setWindowTitle),
   LunaMethod(setVideoMode),
   LunaMethod(getVideoMode),
+  LunaMethod(setDisplayStyle),
+  LunaMethod(getDisplayStyle),
   {0}
 };
 LUNA_IMPL_PROPERTIES_NONE()
@@ -273,6 +275,12 @@ bool LUAImpl::init(const char * fileName)
   registerEnum(state, "VideoMode",
      "Text80x25", Renderer::VideoMode::Text_80x25,
      "Text40x25", Renderer::VideoMode::Text_40x25,
+  0);
+
+  registerEnum(state, "DisplayStyle",
+     "Default", Renderer::ScreenStyle::Normal,
+     "FullFill", Renderer::ScreenStyle::FullFill,
+     "FullFit", Renderer::ScreenStyle::FullFit,
   0);
 
   luaL_dofile(state, startupScriptPath.c_str());

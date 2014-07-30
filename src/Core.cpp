@@ -30,6 +30,7 @@ Core::Core()
 int Core::init(int argc, char* argv[])
 {
   std::string scriptName = "";
+  std::string displayStyle = "default";
   int wallpaperIndex = 18;
   int screenWidth = 1280;
   int screenHeight = 720;
@@ -49,6 +50,8 @@ int Core::init(int argc, char* argv[])
       screenHeight = atoi(argv[i+1]);
     } else if (strcmp(argv[i], "-fullscreen") == 0) {
       fullscreen = atoi(argv[i+1]);
+    } else if (strcmp(argv[i], "-style") == 0) {
+      displayStyle = argv[i+1];
     }
   }
 
@@ -88,6 +91,11 @@ int Core::init(int argc, char* argv[])
         std::getline(file, line);
         fullscreen = atoi(line.c_str());
       }
+      else if (line == "#style")
+      {
+        std::getline(file, line);
+        displayStyle = line;
+      }
     }
 
     // No script file provided
@@ -109,6 +117,22 @@ int Core::init(int argc, char* argv[])
     windowFlags |= Style::Fullscreen;
   }
 
+  Renderer::ScreenStyle screenStyle = Renderer::ScreenStyle::Normal;
+
+  if (displayStyle == "fullFill" ||
+      displayStyle == "fullfill" ||
+      displayStyle == "full-fill" ||
+      displayStyle == "full_fill")
+  {
+    screenStyle = Renderer::ScreenStyle::FullFill;
+  }
+  else  if (displayStyle == "fullFit" ||
+            displayStyle == "fullfit" ||
+            displayStyle == "full-fit" ||
+            displayStyle == "full_fit")
+  {
+    screenStyle = Renderer::ScreenStyle::FullFit;
+  }
 
   isFullscreen = fullscreen;
 
@@ -122,8 +146,6 @@ int Core::init(int argc, char* argv[])
   soundManager = new SoundManager(this);
   ui = new UI(this);
 
-  renderer->setWallpaper(wallpaperIndex);
-
   scriptImplementation = new LUAImpl(this);
 
   if (scriptImplementation) {
@@ -131,6 +153,9 @@ int Core::init(int argc, char* argv[])
   }
 
   launchGame();
+
+  renderer->setWallpaper(wallpaperIndex);
+  renderer->setScreenStyle(screenStyle);
 
   return 0;
 }
