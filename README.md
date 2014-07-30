@@ -24,7 +24,6 @@ Roadmap
 =======
 
 - Sound
-- Sprites
 - File system
-- Display customization
+- Sprites
 - Networking (HTTP, WebSockets)
