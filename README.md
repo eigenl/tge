@@ -15,6 +15,10 @@ The engine was initially written for Text-Based Multiplayer Shooter (http://stea
 
 There are two text modes available: 80x25 and 40x25 characters.
 
+You can also swtich between different dispaly styles if you prefer not to use the monitor graphics.
+
+![alt tag](https://pbs.twimg.com/media/Bt0Do2cIAAA4zig.png)
+
 
 Roadmap
 =======
