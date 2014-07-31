@@ -1,8 +1,14 @@
-<html>
+﻿<html>
 <head>
 <title>TGE API</title>
 </head>
 <body style="background:#fdfdfd;font-family:Verdana;line-height: 1.6em;">
+
+<img src="../logo.png" />
+
+<br />
+<br />
+
 
 <h1>Globals</h1>
 
@@ -37,7 +43,7 @@
 <b>instance()</b>
 <i>Returns the underlying C pointer.</i>
 
-<br />
+
 
 <b>showMessageBox(</b>message<b>)</b>
 <i>Shows a default message box with the given message.</i>
@@ -380,6 +386,18 @@ end)<br/>
 Note: Return 'false' to prevent this key event from being sent any further. 
 </p>
 
+<b>onDraw(</b>callbackFunction<b>)</b>
+<i>LUA function that's called when the window display its content. Can be used to add custom content to window. Example:</i>
+<p style="margin-left:3.0em; font-size:0.8em; border:1px solid #808080;width:30%;padding:10px;background:#fdbfef;">
+myWindow.onDraw(function()<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;Screen.put({x = 1, y = 1, value = "♥"})<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;Screen.put({x = 2, y = 2, value = "♥"})<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;Screen.put({x = 3, y = 3, value = "♥"})<br/>
+end)<br/>
+</p>
+<p style="margin-left:3.0em; font-size:0.8em;">
+Note: During the execution of this callback the top-left origin of the screen buffer is set to the top left coordinate of the window. 
+</p>
 
 
 <h2>LuaTextField</h2>

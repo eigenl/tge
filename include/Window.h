@@ -37,6 +37,7 @@ namespace tge
       {
         OnClose = 0,
         OnKey,
+        OnDraw,
 
         Count
       };

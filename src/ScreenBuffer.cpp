@@ -35,6 +35,7 @@ using namespace tge;
 ScreenBuffer::ScreenBuffer(Core * c, sf::Vector2u _size) : C(c), size(_size)
 {
   buffer = new BufferElement[size.x * size.y];
+  topLeftOrigin = sf::Vector2u(0,0);
 }
 
 void ScreenBuffer::clear(unsigned char color)
@@ -79,6 +80,9 @@ void ScreenBuffer::set(unsigned int x, unsigned int y, wchar_t c, DisplayOptions
 
 int ScreenBuffer::print(unsigned int x, unsigned int y, std::wstring str, DisplayOptions options, int textFlags, unsigned int maxLength)
 {
+  x += topLeftOrigin.x;
+  y += topLeftOrigin.y;
+
   if (textFlags & ScreenBuffer::TextFlags::Vertical)
   {
     unsigned short yAdjust = 0;
@@ -101,15 +105,30 @@ int ScreenBuffer::print(unsigned int x, unsigned int y, std::wstring str, Displa
 
     return str.length();
   }
+
   else if (textFlags & ScreenBuffer::TextFlags::Raw)
   {
+    int xAdjust = 0, yAdjust = 0;
+
     for (size_t i = 0; i < str.length(); ++i)
     {
-      if (str[i] == L' ') {
-          continue;
+      if (str[i] == L' ')
+      {
+        xAdjust ++;
+        continue;
       }
 
-      set(x + i, y, str[i], options);
+      if (str[i] == L'\n' || str[i] == L'\r')
+      {
+        xAdjust = 0;
+        yAdjust ++;
+
+        continue;
+      }
+
+      set(x + xAdjust, y + yAdjust, str[i], options);
+
+      xAdjust ++;
     }
 
     return 1;

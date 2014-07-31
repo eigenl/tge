@@ -26,6 +26,7 @@
 #include "UI.h"
 #include "Renderer.h"
 #include "ScreenBuffer.h"
+#include "ScriptingInterface.h"
 
 using namespace sf;
 using namespace tge;
@@ -52,6 +53,13 @@ void tge::Window::display(const float frameTime)
   }
 
   C->getRenderer()->getScreenBuffer()->drawBorder(rectangle, displayOptions, flags);
+
+  sf::Vector2u previousOrigin = C->getRenderer()->getScreenBuffer()->getTopLeftOrigin();
+  IntRect globalRect = getGlobalRect();
+
+  C->getRenderer()->getScreenBuffer()->setTopLeftOrigin(sf::Vector2u(globalRect.left + 1, globalRect.top + 1));
+  C->getScriptImpl()->onWindowDraw(this);
+  C->getRenderer()->getScreenBuffer()->setTopLeftOrigin(previousOrigin);
 
   UIWidget::display(frameTime);
 }

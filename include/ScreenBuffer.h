@@ -71,6 +71,10 @@ namespace tge
       // Return size of the screen buffer
       inline sf::Vector2u getSize() { return size; }
 
+      inline sf::Vector2u getTopLeftOrigin() { return topLeftOrigin; }
+
+      inline void setTopLeftOrigin(sf::Vector2u origin) { topLeftOrigin = origin; }
+
 
       // Draw methods
 
@@ -100,6 +104,7 @@ namespace tge
       Core * C;
 
       sf::Vector2u size;
+      sf::Vector2u topLeftOrigin;
 
       BufferElement * buffer;
 

@@ -450,7 +450,7 @@
 1406830426 c:\users\eigen\gamedev\tge\include\renderer.h
 	"Shared.h"
 
-1406830426 c:\users\eigen\gamedev\tge\include\screenbuffer.h
+1406831549 c:\users\eigen\gamedev\tge\include\screenbuffer.h
 	<SFML/Graphics.hpp>
 	<string>
 	"Shared.h"
@@ -489,7 +489,7 @@
 	"Shared.h"
 	<SFML/Graphics.hpp>
 
-1406830273 c:\users\eigen\gamedev\tge\include\window.h
+1406831340 c:\users\eigen\gamedev\tge\include\window.h
 	"Shared.h"
 	"UIWidget.h"
 
@@ -555,7 +555,7 @@
 	"Shared.h"
 	"TextField.h"
 
-1406743992 source:c:\users\eigen\gamedev\tge\src\renderer.cpp
+1406830584 source:c:\users\eigen\gamedev\tge\src\renderer.cpp
 	"Core.h"
 	"Renderer.h"
 	"ScreenBuffer.h"
@@ -565,7 +565,7 @@
 	<stdio.h>
 	<math.h>
 
-1406830426 source:c:\users\eigen\gamedev\tge\src\screenbuffer.cpp
+1406832309 source:c:\users\eigen\gamedev\tge\src\screenbuffer.cpp
 	"ScreenBuffer.h"
 	"Core.h"
 	"Colors.h"
@@ -604,12 +604,13 @@
 	<math.h>
 	<sstream>
 
-1406830401 source:c:\users\eigen\gamedev\tge\src\window.cpp
+1406832577 source:c:\users\eigen\gamedev\tge\src\window.cpp
 	"Window.h"
 	"Core.h"
 	"UI.h"
 	"Renderer.h"
 	"ScreenBuffer.h"
+	"ScriptingInterface.h"
 
 1404752680 source:c:\users\eigen\gamedev\tge\libs\lua\lapi.c
 	<stdarg.h>
@@ -1530,7 +1531,7 @@
 	"llimits.h"
 	"lua.h"
 
-1406830426 c:\users\eigen\gamedev\tge\include\luaimpl.h
+1406831259 c:\users\eigen\gamedev\tge\include\luaimpl.h
 	"Shared.h"
 	"ScriptingInterface.h"
 	"lua/lua.h"
@@ -1538,7 +1539,7 @@
 	"lua/lualib.h"
 	"lua/lstate.h"
 
-1406830315 source:c:\users\eigen\gamedev\tge\src\luaimpl.cpp
+1406832593 source:c:\users\eigen\gamedev\tge\src\luaimpl.cpp
 	"LUAImpl.h"
 	"Core.h"
 	"Renderer.h"
@@ -1556,7 +1557,7 @@
 	"LUA/Window.h"
 	<sstream>
 
-1406830426 c:\users\eigen\gamedev\tge\include\scriptinginterface.h
+1406831242 c:\users\eigen\gamedev\tge\include\scriptinginterface.h
 
 1406389480 source:c:\users\eigen\gamedev\tge\src\scriptinginterface.cpp
 	"ScriptingInterface.h"
@@ -1616,7 +1617,7 @@
 	"lunar.h"
 	"strutil/strutil.h"
 
-1406830426 c:\users\eigen\gamedev\tge\include\lua\window.h
+1406831350 c:\users\eigen\gamedev\tge\include\lua\window.h
 	<Window.h>
 	"lunar.h"
 	"strutil/strutil.h"
@@ -1636,4 +1637,6 @@
 1406830426 source:c:\users\eigen\gamedev\tge\src\soundmanager.cpp
 	"SoundManager.h"
 	"Core.h"
+
+1406833322 source:c:\users\eigen\gamedev\tge\res.rc
 

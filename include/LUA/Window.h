@@ -61,6 +61,13 @@ namespace tge
       return 0;
     }
 
+    int onDraw(lua_State * L)
+    {
+      int functionRefIndex = luaL_ref(L, LUA_REGISTRYINDEX);
+      obj->setCallbackFunctionIndex(Window::CallbackFunctions::OnDraw, functionRefIndex);
+      return 0;
+    }
+
     int setId(lua_State * L)
     {
       obj->setId( lua_tointeger(L, 1) );

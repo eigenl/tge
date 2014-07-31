@@ -1,6 +1,6 @@
 -- Globals
 Core = LuaCore(gCore)
-Screen = nil
+Screen = LuaScreenBuffer(gScreenBuffer)
 UI = LuaUI(gUI)
 Utils = LuaUtils(gUtils)
 
