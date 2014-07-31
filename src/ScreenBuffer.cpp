@@ -1,3 +1,26 @@
+/*
+  The MIT License (MIT)
+
+  Copyright (c) 2014 Eigen Lenk
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy of
+  this software and associated documentation files (the "Software"), to deal in
+  the Software without restriction, including without limitation the rights to
+  use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
+  the Software, and to permit persons to whom the Software is furnished to do so,
+  subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in all
+  copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+  FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+  COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+  IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+  CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+  */
+
 #include "ScreenBuffer.h"
 #include "Core.h"
 #include "Colors.h"
@@ -27,41 +50,64 @@ void ScreenBuffer::set(unsigned int x, unsigned int y, wchar_t c, DisplayOptions
 {
   int index = (y * size.x) + x;
 
-  if (index < 0 || index >= (int)(size.x * size.y))
-  {
-    // printf("Invalid coordinate (%d, %d)...\n", x, y);
-
+  if (index < 0 || index >= (int)(size.x * size.y)) {
     return;
   }
 
-  if (options.bg == CLEAR2)
-    buffer[index].background = CLEAR;
-  else if (options.bg > 0)
-    buffer[index].background = options.bg;
+  BufferElement * b = &buffer[index];
 
-  buffer[index].foreground = options.fg;
+  if (options.bg == CLEAR2) {
+    b->background = CLEAR;
+  }
+  else if (options.bg > 0) {
+    b->background = options.bg;
+  }
 
-  if (flags & BOX_MERGE)
+  b->foreground = options.fg;
+
+  if (flags & ScreenBuffer::BoxFlags::Merge)
   {
     // wchar_t current = buffer[index].content;
-
     // printf("x = %d     ", x);
-
     // if (current == L'║') { c = L'╠'; }
   }
 
-  buffer[index].content = c;
+  b->content = c;
 
   return;
 }
 
 int ScreenBuffer::print(unsigned int x, unsigned int y, std::wstring str, DisplayOptions options, int textFlags, unsigned int maxLength)
 {
-  if (textFlags & TEXT_AS_IS)
+  if (textFlags & ScreenBuffer::TextFlags::Vertical)
+  {
+    unsigned short yAdjust = 0;
+
+    for (size_t i = 0; i < str.length(); ++i, ++yAdjust)
+    {
+      if ((yAdjust + y) >= size.y)
+      {
+        break;
+        // x ++;
+        // yAdjust = 0;
+      }
+
+      if (str[i] == L' ') {
+          continue;
+      }
+
+      set(x, y + yAdjust, str[i], options);
+    }
+
+    return str.length();
+  }
+  else if (textFlags & ScreenBuffer::TextFlags::Raw)
   {
     for (size_t i = 0; i < str.length(); ++i)
     {
-      if (str[i] == L' ') continue;
+      if (str[i] == L' ') {
+          continue;
+      }
 
       set(x + i, y, str[i], options);
     }
@@ -94,7 +140,7 @@ int ScreenBuffer::print(unsigned int x, unsigned int y, std::wstring str, Displa
   unsigned int yAdjust = 0;
   unsigned int charIndex = 0;
 
-  const bool textWrapEnabled = ((textFlags & TEXT_WRAP) && maxLength > 0);
+  const bool textWrapEnabled = ((textFlags & ScreenBuffer::TextFlags::Wrap) && maxLength > 0);
 
   for (unsigned int ti = 0; ti < tokens.size(); ++ti)
   {
@@ -202,8 +248,7 @@ int ScreenBuffer::calculateTextHeight(std::wstring text, unsigned int maxLength)
 
 void ScreenBuffer::drawBorder(IntRect rectangle, DisplayOptions options, int flags)
 {
-  if (flags & BOX_SHADOW)
-  {
+  if (flags & ScreenBuffer::BoxFlags::Shadow) {
     fillRect(IntRect(rectangle.left + 1, rectangle.top + 1, rectangle.width, rectangle.height), BLACK);
   }
 
@@ -238,11 +283,11 @@ void ScreenBuffer::drawBorder(IntRect rectangle, DisplayOptions options, int fla
     set(rectangle.left + rectangle.width - 1, rectangle.top + rectangle.height - 1, L'╝', options);
   }
 
-
-  if (flags & BOX_FILL)
-  {
+  if (flags & ScreenBuffer::BoxFlags::Fill) {
     fillRect(IntRect(rectangle.left + 1, rectangle.top + 1, rectangle.width - 2, rectangle.height - 2), options.bg);
   }
+
+  return;
 }
 
 void ScreenBuffer::fillRect(sf::IntRect rectangle, unsigned char bg)

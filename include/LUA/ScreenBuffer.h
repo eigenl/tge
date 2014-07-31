@@ -1,3 +1,26 @@
+/*
+  The MIT License (MIT)
+
+  Copyright (c) 2014 Eigen Lenk
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy of
+  this software and associated documentation files (the "Software"), to deal in
+  the Software without restriction, including without limitation the rights to
+  use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
+  the Software, and to permit persons to whom the Software is furnished to do so,
+  subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in all
+  copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+  FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+  COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+  IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+  CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+  */
+
 #ifndef LUA_SCREENBUFFER_OBJECT
 #define LUA_SCREENBUFFER_OBJECT
 
@@ -41,6 +64,7 @@ namespace tge
       DisplayOptions dOpts(WHITE, CLEAR);
       bool rawFormat = false;
       bool wrapText = false;
+      bool vertical = false;
       int maxLength = 0;
 
       lua_pushnil(L);
@@ -70,6 +94,9 @@ namespace tge
         else if (key == "wrap" || key == "lineWrap" || key == "wrapText" || key == "textWrap") {
           wrapText = lua_toboolean(L, -1);
         }
+        else if (key == "vertical" || key == "verticalText") {
+          vertical = lua_toboolean(L, -1);
+        }
         else if (key == "length" || key == "maxLength") {
           maxLength = lua_tointeger(L, -1);
         }
@@ -79,8 +106,9 @@ namespace tge
 
       int flags = 0;
 
-      if (rawFormat) { flags |= TEXT_AS_IS; }
-      if (wrapText) { flags |= TEXT_WRAP; }
+      if (rawFormat)  { flags |= ScreenBuffer::TextFlags::Raw; }
+      if (wrapText)   { flags |= ScreenBuffer::TextFlags::Wrap; }
+      if (vertical)   { flags |= ScreenBuffer::TextFlags::Vertical; }
 
       obj->print(x, y, text, dOpts, flags, maxLength);
 
@@ -231,9 +259,9 @@ namespace tge
 
       int flags = 0;
 
-      if (boxFill) { flags |= BOX_FILL; }
-      if (boxShadow) { flags |= BOX_SHADOW; }
-      if (boxMerge) { flags |= BOX_MERGE; }
+      if (boxFill)    { flags |= ScreenBuffer::BoxFlags::Fill; }
+      if (boxShadow)  { flags |= ScreenBuffer::BoxFlags::Shadow; }
+      if (boxMerge)   { flags |= ScreenBuffer::BoxFlags::Merge; }
 
       obj->drawBorder(rectangle, dOpts, flags);
 
