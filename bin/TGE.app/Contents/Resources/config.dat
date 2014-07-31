@@ -8,3 +8,6 @@ uidemo/main
 720
 #fullscreen
 0
+// Possible values are: default, fullFill & fullFit
+#style
+fullFill

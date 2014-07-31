@@ -2,6 +2,7 @@
 function start()
 	-- Let's start with low-res text mode
 	Core.setVideoMode(VideoMode.Text40x25)
+	Core.setDisplayStyle(DisplayStyle.FullFit)
 end
 
 -- Called when the screen gets a full redraw (when closing windows, etc.)
@@ -49,6 +50,16 @@ function key(keyCode, pressed, handled)
 			Core.setVideoMode(VideoMode.Text80x25)
 		else
 			Core.setVideoMode(VideoMode.Text40x25)
+		end
+
+	-- F2
+	elseif keyCode == 86 and pressed then
+		if Core.getDisplayStyle() == DisplayStyle.Default then
+			Core.setDisplayStyle(DisplayStyle.FullFill)
+		elseif Core.getDisplayStyle() == DisplayStyle.FullFill then
+			Core.setDisplayStyle(DisplayStyle.FullFit)
+		else
+			Core.setDisplayStyle(DisplayStyle.Default)
 		end
 	end
 end

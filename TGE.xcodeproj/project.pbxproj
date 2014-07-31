@@ -696,6 +696,7 @@
 					"\"$(SRCROOT)/libs\"",
 				);
 				INFOPLIST_FILE = "TGE-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				OBJROOT = "$(SYMROOT)";
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -732,6 +733,7 @@
 					"\"$(SRCROOT)/libs\"",
 				);
 				INFOPLIST_FILE = "TGE-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				OBJROOT = "$(SYMROOT)";
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
