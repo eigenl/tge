@@ -203,6 +203,9 @@
 		<Unit filename="libs/lua/lzio.h" />
 		<Unit filename="libs/strutil/strutil.cpp" />
 		<Unit filename="libs/strutil/strutil.h" />
+		<Unit filename="res.rc">
+			<Option compilerVar="WINDRES" />
+		</Unit>
 		<Unit filename="src/Console.cpp" />
 		<Unit filename="src/Core.cpp" />
 		<Unit filename="src/LUAImpl.cpp" />
