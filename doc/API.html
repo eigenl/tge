@@ -90,6 +90,8 @@
 	<br />
 	<b>background</b> (int) <i>Fill color of the window. Default: <u>Blue</u></i>
 	<br />
+	<b>title</b> (string) <i>Window title. Default: <u>""</u></i>
+	<br />
 	<b>showDismissText</b> (bool) <i>Show the default dismiss message in the bottom-right corner of the window. Default: <u>false</u></i>
 	<br />
 	<b>shadow</b> (bool) <i>Enable to disable the drop shadow. Default: <u>false</u></i>
@@ -344,8 +346,13 @@ When using the configuration file or command line parameters the styles are name
 
 <b>instance()</b>
 <i>Returns the underlying C pointer.</i>
-
 <br />
+<b>getTitle()</b> (string)
+<i>Return window title text.</i>
+<br/>
+<b>setTitle(</b>text<b>)</b>
+<i>Set window title text. Pass empty string to hide the title.</i>
+<br/>
 <b>getId()</b> (int)
 <i></i>
 <br/>
@@ -459,6 +466,12 @@ end)<br/>
 <b>instance()</b>
 <i>Returns the underlying C pointer.</i>
 <br />
+<b>getText()</b> (string)
+<i>Return current label content.</i>
+<br/>
+<b>setText(</b>text<b>)</b>
+<i>Set label content.</i>
+<br/>
 <b>getId()</b> (int)
 <i></i>
 <br/>

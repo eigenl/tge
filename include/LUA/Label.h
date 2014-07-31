@@ -40,6 +40,26 @@ namespace tge
 
     LUNA_CLASS_HEADER_INSTANCE
 
+
+    // Text
+
+    int getText(lua_State * L)
+    {
+      lua_pushstring(L, str::to_utf8(obj->getText()).c_str());
+
+      return 1;
+    }
+
+    int setText(lua_State * L)
+    {
+      obj->setText( str::to_wcs(lua_tostring(L, -1)) );
+
+      return 0;
+    }
+
+
+    // Id
+
     int setId(lua_State * L)
     {
       obj->setId( lua_tointeger(L, 1) );

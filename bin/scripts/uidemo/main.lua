@@ -123,9 +123,9 @@ end
 
 function addKeyWindow()
 
-	local window = LuaWindow(UI.createWindow({x = 30, y = 5, width = 45, height = 12, background = Color.Green, color = Color.LightGreen, showDismissText = true, shadow = true}))
+	local window = LuaWindow(UI.createWindow({x = 30, y = 5, width = 45, height = 12, title = "So many options", background = Color.Green, color = Color.LightGreen, showDismissText = true, shadow = true}))
 	
-	UI.createLabel({parent = window.instance(), x = 2, y = 1, text = "Make your choice:\n\nA) Option 1\nB) Option 2\nX) Close window", color = Color.White})
+	local label1 = UI.createLabel({parent = window.instance(), x = 2, y = 1, text = "Make your choice:\n\nA) Option 1\nB) Option 2\nX) Close window", color = Color.White})
 	
 	window.onKey(function(keyCode, pressed)
 		if pressed then
@@ -145,7 +145,7 @@ end
 
 function addCustomContentWindow()
 	
-	local window = LuaWindow(UI.createWindow({x = 30, y = 9, width = 45, height = 12, background = Color.Magenta, color = Color.LightMagenta, showDismissText = true, shadow = true}))
+	local window = LuaWindow(UI.createWindow({x = 30, y = 9, width = 45, height = 12, title = "Custom content", background = Color.Magenta, color = Color.LightMagenta, showDismissText = true, shadow = true}))
 	
 	window.onDraw(function()
 		Screen.print({x = 8, y = 2, color = Color.Yellow, raw = true, text = 

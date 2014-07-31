@@ -148,8 +148,8 @@ LUNA_IMPL_FUNCTIONS() = {
   LunaMethod(focus),
   LunaMethod(unfocus),
   LunaMethod(getText),
-  LunaMethod(clear),
   LunaMethod(setText),
+  LunaMethod(clear),
   LunaMethod(setInputPrefix),
   LunaMethod(onEnter),
   LunaMethod(setId),
@@ -168,6 +168,8 @@ LUNA_IMPL_FUNCTIONS() = {
   LunaMethod(onClose),
   LunaMethod(onKey),
   LunaMethod(onDraw),
+  LunaMethod(setTitle),
+  LunaMethod(getTitle),
   LunaMethod(setId),
   LunaMethod(getId),
   {0}
@@ -180,6 +182,8 @@ LUNA_IMPL_PROPERTIES_NONE()
 LUNA_IMPL_BEGIN(LuaLabel)
 LUNA_IMPL_FUNCTIONS() = {
   LunaMethod(instance),
+  LunaMethod(getText),
+  LunaMethod(setText),
   LunaMethod(setId),
   LunaMethod(getId),
   {0}

@@ -270,8 +270,6 @@ namespace tge
 
     int put(lua_State * L)
     {
-      // unsigned int x, unsigned int y, wchar_t c, DisplayOptions options = DisplayOptions(), int flags = 0
-
       unsigned int x = 0;
       unsigned int y = 0;
       wchar_t c = L'?';

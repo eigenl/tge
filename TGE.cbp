@@ -13,7 +13,7 @@
 				<Option type="1" />
 				<Option compiler="gcc" />
 				<Option use_console_runner="0" />
-				<Option parameters='-script &quot;uidemo/main&quot;' />
+				<Option parameters='-script &quot;helloworld/main&quot;' />
 				<Compiler>
 					<Add option="-g" />
 					<Add directory="include" />
@@ -48,6 +48,9 @@
 				</Linker>
 			</Target>
 		</Build>
+		<VirtualTargets>
+			<Add alias="BUILD ALL" targets="Debug;Release;" />
+		</VirtualTargets>
 		<Compiler>
 			<Add option="-std=c++11" />
 			<Add option="-Wall" />

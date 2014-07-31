@@ -68,6 +68,9 @@ namespace tge
       return 0;
     }
 
+
+    // Id
+
     int setId(lua_State * L)
     {
       obj->setId( lua_tointeger(L, 1) );
@@ -77,6 +80,21 @@ namespace tge
     int getId(lua_State * L)
     {
       lua_pushinteger(L, obj->getId());
+      return 1;
+    }
+
+
+    // Title
+
+    int setTitle(lua_State * L)
+    {
+      obj->setTitle(str::to_wcs(lua_tostring(L, -1)));
+      return 0;
+    }
+
+    int getTitle(lua_State * L)
+    {
+      lua_pushstring(L, str::to_utf8(obj->getTitle()).c_str());
       return 1;
     }
 

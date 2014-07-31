@@ -40,10 +40,13 @@ namespace tge
       virtual ~Label();
 
       virtual const WidgetTypes getType() { return UIWidget::Label; }
-
       virtual void display(const float frameTime);
 
+
+      inline void setText(std::wstring _text) { text = _text; }
       inline void setMaxWidth(int maxw = 0) { maxWidth = maxw; }
+
+      inline std::wstring getText() { return text; }
 
     private:
 

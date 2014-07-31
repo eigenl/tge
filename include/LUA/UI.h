@@ -135,6 +135,7 @@ namespace tge
       bool hasShadow = false;
       bool closable = true;
       int id = 0;
+      std::wstring title = L"";
 
       lua_pushnil(L);
       while (lua_next(L, -2) != 0)
@@ -151,17 +152,21 @@ namespace tge
         else  if (key == "shadow")          { hasShadow = lua_toboolean(L, -1); }
         else  if (key == "closable")        { closable = lua_toboolean(L, -1); }
         else  if (key == "id")              { id = lua_tointeger(L, -1); }
+        else  if (key == "title")           { title = str::to_wcs(lua_tostring(L, -1)); }
         lua_pop(L, 1);
       }
+
+      printf("WND TITLE == %S\n", title.c_str());
 
       Window * wnd = obj->createWindow(parent, rectangle, dOpts);
 
       wnd->setShadowed(hasShadow);
       wnd->setIsClosable(closable);
       wnd->setId(id);
+      wnd->setTitle(title);
 
       if (showDismissText) {
-        obj->createLabel(wnd, L" [Enter ►] ", sf::Vector2u(rectangle.width - 14, rectangle.height - 1), dOpts);
+        obj->createLabel(wnd, L" [Enter ►] ", sf::Vector2u(rectangle.width - 13, rectangle.height - 1), dOpts);
       }
 
       lua_pushlightuserdata(L, wnd);

@@ -375,12 +375,12 @@ void Core::toggleFullscreen()
 
 void Core::launchGame()
 {
-  if (scriptImplementation) {
-    scriptImplementation->onStart();
-  }
-
   if (!renderer->getScreenBuffer()) {
     renderer->setVideoMode(Renderer::VideoMode::Text_80x25);
+  }
+
+  if (scriptImplementation) {
+    scriptImplementation->onStart();
   }
 }
 

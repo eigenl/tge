@@ -47,14 +47,14 @@ namespace tge
       virtual ~Window();
 
       virtual const WidgetTypes getType() { return UIWidget::Window; }
-
       virtual void display(const float frameTime);
 
-      inline bool isClosable() { return closable; }
-
+      void setTitle(std::wstring titleString);
       inline void setIsClosable(bool c) { closable = c; }
-
       inline void setShadowed(bool shadow) { hasShadow = shadow; }
+
+      inline std::wstring getTitle() { return title; }
+      inline bool isClosable() { return closable; }
 
       inline bool isShadowed() { return hasShadow; }
 
@@ -78,6 +78,9 @@ namespace tge
 
       int callbackFunctionIndexes[CallbackFunctions::Count];
 
+      std::wstring title;
+
+      tge::Label * titleLabel;
   };
 }
 

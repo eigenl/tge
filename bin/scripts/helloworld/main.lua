@@ -1,12 +1,6 @@
 ﻿-- This is the first method that gets called
 function start()
-	
 	Core.setWindowTitle("Hello World")
-	
-	-- Clear the screen (not needed when first launching but reloading the script when running)
-	-- You can reload the scripts by pressing CTRL + R
-	Screen.clear()
-	
 end
 
 -- Called when the screen gets a full redraw (when closing windows, etc.)

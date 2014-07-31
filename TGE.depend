@@ -455,7 +455,7 @@
 	<string>
 	"Shared.h"
 
-1406830426 source:c:\users\eigen\gamedev\tge\src\core.cpp
+1406841123 source:c:\users\eigen\gamedev\tge\src\core.cpp
 	"Core.h"
 	"Renderer.h"
 	"ScreenBuffer.h"
@@ -489,7 +489,7 @@
 	"Shared.h"
 	<SFML/Graphics.hpp>
 
-1406831340 c:\users\eigen\gamedev\tge\include\window.h
+1406839668 c:\users\eigen\gamedev\tge\include\window.h
 	"Shared.h"
 	"UIWidget.h"
 
@@ -500,7 +500,7 @@
 	"Shared.h"
 	"ScreenBuffer.h"
 
-1406830426 c:\users\eigen\gamedev\tge\include\label.h
+1406839252 c:\users\eigen\gamedev\tge\include\label.h
 	<string>
 	"Shared.h"
 	"UIWidget.h"
@@ -555,7 +555,7 @@
 	"Shared.h"
 	"TextField.h"
 
-1406830584 source:c:\users\eigen\gamedev\tge\src\renderer.cpp
+1406841123 source:c:\users\eigen\gamedev\tge\src\renderer.cpp
 	"Core.h"
 	"Renderer.h"
 	"ScreenBuffer.h"
@@ -579,7 +579,7 @@
 	"Renderer.h"
 	"ScreenBuffer.h"
 
-1406830426 source:c:\users\eigen\gamedev\tge\src\ui.cpp
+1406840425 source:c:\users\eigen\gamedev\tge\src\ui.cpp
 	"UI.h"
 	"Core.h"
 	"Console.h"
@@ -604,8 +604,9 @@
 	<math.h>
 	<sstream>
 
-1406832577 source:c:\users\eigen\gamedev\tge\src\window.cpp
+1406840348 source:c:\users\eigen\gamedev\tge\src\window.cpp
 	"Window.h"
+	"Label.h"
 	"Core.h"
 	"UI.h"
 	"Renderer.h"
@@ -1539,7 +1540,7 @@
 	"lua/lualib.h"
 	"lua/lstate.h"
 
-1406832593 source:c:\users\eigen\gamedev\tge\src\luaimpl.cpp
+1406839206 source:c:\users\eigen\gamedev\tge\src\luaimpl.cpp
 	"LUAImpl.h"
 	"Core.h"
 	"Renderer.h"
@@ -1572,7 +1573,7 @@
 	<Renderer.h>
 	"lunar.h"
 
-1406830426 c:\users\eigen\gamedev\tge\include\lua\screenbuffer.h
+1406839983 c:\users\eigen\gamedev\tge\include\lua\screenbuffer.h
 	<ScreenBuffer.h>
 	"lunar.h"
 	"strutil/strutil.h"
@@ -1597,7 +1598,7 @@
 	<vector>
 	<cstring>
 
-1406830419 c:\users\eigen\gamedev\tge\include\lua\ui.h
+1406840404 c:\users\eigen\gamedev\tge\include\lua\ui.h
 	<UI.h>
 	<Console.h>
 	<Label.h>
@@ -1617,12 +1618,12 @@
 	"lunar.h"
 	"strutil/strutil.h"
 
-1406831350 c:\users\eigen\gamedev\tge\include\lua\window.h
+1406839174 c:\users\eigen\gamedev\tge\include\lua\window.h
 	<Window.h>
 	"lunar.h"
 	"strutil/strutil.h"
 
-1406830426 c:\users\eigen\gamedev\tge\include\lua\label.h
+1406839269 c:\users\eigen\gamedev\tge\include\lua\label.h
 	<Label.h>
 	"lunar.h"
 	"strutil/strutil.h"
