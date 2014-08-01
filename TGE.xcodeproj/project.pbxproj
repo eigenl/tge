@@ -24,6 +24,7 @@
 		CF4778BF1987B45F0054926D /* sfml-system.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = CF4778AD1987B4450054926D /* sfml-system.framework */; };
 		CF4778C01987B45F0054926D /* sfml-window.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = CF4778AE1987B4450054926D /* sfml-window.framework */; };
 		CF4778C11987B45F0054926D /* SFML.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = CF4778AF1987B4450054926D /* SFML.framework */; };
+		CFB651C4198BA58D008B3FAD /* Icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = CFB651C3198BA58D008B3FAD /* Icon.icns */; };
 		CFD6DE57198684B5005D9A8C /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFD6DE56198684B5005D9A8C /* Cocoa.framework */; };
 		CFD6DEB519868540005D9A8C /* Console.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CFD6DEA619868540005D9A8C /* Console.cpp */; };
 		CFD6DEB619868540005D9A8C /* Core.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CFD6DEA719868540005D9A8C /* Core.cpp */; };
@@ -109,6 +110,7 @@
 		CF4778AF1987B4450054926D /* SFML.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SFML.framework; path = "libs/sfml-osx/Frameworks/SFML.framework"; sourceTree = "<group>"; };
 		CF4778B61987B44A0054926D /* freetype.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = freetype.framework; path = "libs/sfml-osx/extlibs/freetype.framework"; sourceTree = "<group>"; };
 		CF4778B71987B44A0054926D /* sndfile.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = sndfile.framework; path = "libs/sfml-osx/extlibs/sndfile.framework"; sourceTree = "<group>"; };
+		CFB651C3198BA58D008B3FAD /* Icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Icon.icns; sourceTree = SOURCE_ROOT; };
 		CFD6DE53198684B5005D9A8C /* TGE.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TGE.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFD6DE56198684B5005D9A8C /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		CFD6DE5E198684B5005D9A8C /* TGE-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TGE-Info.plist"; sourceTree = "<group>"; };
@@ -294,6 +296,7 @@
 		CFD6DE5D198684B5005D9A8C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				CFB651C3198BA58D008B3FAD /* Icon.icns */,
 				CFD6DE5E198684B5005D9A8C /* TGE-Info.plist */,
 				CFD6DE64198684B5005D9A8C /* TGE-Prefix.pch */,
 			);
@@ -505,6 +508,7 @@
 				CFD6DF2619868557005D9A8C /* license.txt in Resources */,
 				CFD6DF4219868C83005D9A8C /* data in Resources */,
 				CFD6DF4619868CE9005D9A8C /* scripts in Resources */,
+				CFB651C4198BA58D008B3FAD /* Icon.icns in Resources */,
 				CFD6DF2519868557005D9A8C /* README in Resources */,
 				CFD6DF4419868CBC005D9A8C /* config.dat in Resources */,
 			);
@@ -524,7 +528,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "touch -cm ${SRCROOT}/bin/scripts";
+			shellScript = "touch -cm ${SRCROOT}/bin/scripts touch -cm ${SRCROOT}/bin/data";
 		};
 		CF4778C21987B46C0054926D /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;

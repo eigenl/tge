@@ -10,4 +10,4 @@ uidemo/main
 0
 // Possible values are: default, fullFill & fullFit
 #style
-fullFill
+default

@@ -29,8 +29,14 @@ function start()
 	
 	local keyWindow = LuaWindow(UI.createWindow({x = 5, y = 11, width = 38, height = 12, background = Color.Red, color = Color.LightRed, closable = false}))
 	
-	UI.createLabel({parent = keyWindow.instance(), x = 2, y = 1, text = "Some keys:", color = Color.Yellow})
-	UI.createLabel({parent = keyWindow.instance(), x = 2, y = 3, text = "F1 - Add empty window\nF2 - Add window with text fields\nF3 - Window key listener\nF4 - Show a message box\nESC - Close the demo", color = Color.White})
+	UI.createLabel({parent = keyWindow.instance(), x = 2, y = 1, color = Color.Yellow, text = "Some keys:"})
+	UI.createLabel({parent = keyWindow.instance(), x = 2, y = 3, color = Color.White, text =
+		"F1 - Add empty window\n"..
+		"F2 - Add window with text fields\n"..
+		"F3 - Window key listener\n"..
+		"F4 - Custom window content\n"..
+		"F5 - Show a message box\n"..
+		"ESC - Close the demo"})
 
 end
 
@@ -60,9 +66,13 @@ function key(keyCode, pressed, handled)
 	-- F3
 	elseif keyCode == 87 and pressed then
 		addKeyWindow()		
-		
+	
 	-- F4
 	elseif keyCode == 88 and pressed then
+		addCustomContentWindow()
+		
+	-- F5
+	elseif keyCode == 89 and pressed then
 		addMessageBox()
 	
 	-- ESC
@@ -73,10 +83,10 @@ function key(keyCode, pressed, handled)
 end
 
 function addEmptyWindow()
-	local x = math.random(3, 50);
-	local y = math.random(5, 19);
+	local x = math.random(2, 50);
+	local y = math.random(4, 19);
 	local newWindow = LuaWindow(UI.createWindow({x = x, y = y, width = 28, height = 5, background = Color.Cyan, color = Color.LightCyan, showDismissText = true, shadow = true}))
-	UI.createLabel({parent = newWindow.instance(), x = 2, y = 1, text = "A window!", color = Color.Yellow})
+	UI.createLabel({parent = newWindow.instance(), x = 2, y = 1, text = "I'm a window!", color = Color.Yellow})
 end
 
 function addTextFieldsWindow()
@@ -113,9 +123,9 @@ end
 
 function addKeyWindow()
 
-	local window = LuaWindow(UI.createWindow({x = 30, y = 5, width = 45, height = 12, background = Color.Green, color = Color.LightGreen, showDismissText = true, shadow = true}))
+	local window = LuaWindow(UI.createWindow({x = 30, y = 5, width = 45, height = 12, title = "So many options", background = Color.Green, color = Color.LightGreen, showDismissText = true, shadow = true}))
 	
-	UI.createLabel({parent = window.instance(), x = 2, y = 1, text = "Make your choice:\n\nA) Option 1\nB) Option 2\nX) Close window", color = Color.White})
+	local label1 = UI.createLabel({parent = window.instance(), x = 2, y = 1, text = "Make your choice:\n\nA) Option 1\nB) Option 2\nX) Close window", color = Color.White})
 	
 	window.onKey(function(keyCode, pressed)
 		if pressed then
@@ -129,6 +139,22 @@ function addKeyWindow()
 			end
 		end
 		return true
+	end)
+	
+end
+
+function addCustomContentWindow()
+	
+	local window = LuaWindow(UI.createWindow({x = 30, y = 9, width = 45, height = 12, title = "Custom content", background = Color.Magenta, color = Color.LightMagenta, showDismissText = true, shadow = true}))
+	
+	window.onDraw(function()
+		Screen.print({x = 8, y = 2, color = Color.Yellow, raw = true, text = 
+			"████████╗ ██████╗ ███████╗\n"..
+			"╚══██╔══╝██╔════╝ ██╔════╝\n"..
+			"   ██║   ██║  ███╗█████╗\n"..
+			"   ██║   ██║   ██║██╔══╝\n"..
+			"   ██║   ╚██████╔╝███████╗\n"..
+			"   ╚═╝    ╚═════╝ ╚══════╝"})
 	end)
 	
 end
