@@ -38,6 +38,10 @@ ScreenBuffer::ScreenBuffer(Core * c, sf::Vector2u _size) : C(c), size(_size)
   topLeftOrigin = sf::Vector2u(0,0);
 }
 
+void ScreenBuffer::requestRedraw() {
+  C->redraw();
+}
+
 void ScreenBuffer::clear(unsigned char color)
 {
   for (size_t i = 0; i < (size.x * size.y); ++i)

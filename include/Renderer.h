@@ -40,7 +40,7 @@ namespace tge
         Text_80x25 = 0,
         Text_40x25,
 
-        VideoModeCount
+        Count
       };
 
       enum ScreenStyle
@@ -54,8 +54,8 @@ namespace tge
 
       virtual ~Renderer();
 
-      void setVideoMode(VideoMode mode);
-      void setScreenStyle(ScreenStyle style);
+      void setVideoMode(VideoMode mode, bool redraw = true);
+      void setScreenStyle(ScreenStyle style, bool redraw = true);
 
       inline VideoMode getVideoMode() { return videoMode; }
       inline ScreenStyle getScreenStyle() { return screenStyle; }
@@ -75,7 +75,7 @@ namespace tge
 
       ScreenBuffer * screenBuffer;
 
-      sf::RenderTexture screenRenderTexture[VideoModeCount];
+      sf::RenderTexture screenRenderTexture[VideoMode::Count];
 
       sf::Texture *wallpaperTexture, *monitorTexture;
       sf::Sprite *wallpaperSprite, *monitorSprite;

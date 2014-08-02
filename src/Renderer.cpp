@@ -64,7 +64,7 @@ Renderer::Renderer(Core * c) : C(c)
   colors.push_back(Color(85, 85, 255));     // Light blue
   colors.push_back(Color(255, 85, 255));    // Light magneta
   colors.push_back(Color(253, 253, 253));   // White
-  colors.push_back(Color(19, 15, 15, 80));  // Black
+  colors.push_back(Color(19, 15, 15/*, 80*/));  // Black
 
   if (!font.loadFromFile(Utils::getPlatformSpecificResourcePath() + "data/fonts/TerminalVector.ttf")) {
     printf("Failed to load font...\n");
@@ -87,7 +87,7 @@ Renderer::Renderer(Core * c) : C(c)
   screenRenderTexture[VideoMode::Text_40x25].setSmooth(true);
 }
 
-void Renderer::setVideoMode(VideoMode mode)
+void Renderer::setVideoMode(VideoMode mode, bool redraw)
 {
   printf("setVideoMode = %d\n", mode);
 
@@ -116,16 +116,21 @@ void Renderer::setVideoMode(VideoMode mode)
     C->getScriptImpl()->onSetVideoMode(videoMode);
   }
 
-  C->redraw();
-
+  if (redraw) {
+    C->redraw();
+  }
   return;
 }
 
-void Renderer::setScreenStyle(ScreenStyle style)
+void Renderer::setScreenStyle(ScreenStyle style, bool redraw)
 {
   screenStyle = style;
 
-  C->redraw();
+  if (redraw) {
+    C->redraw();
+  }
+
+  return;
 }
 
 void Renderer::setWallpaper(int wallpaperNumber)
@@ -401,12 +406,17 @@ void Renderer::drawScreenBufferNormal()
   quad[14].texCoords = sf::Vector2f(640, (300 + RenderTextureBottomPadding));
   quad[15].texCoords = sf::Vector2f(480, (300 + RenderTextureBottomPadding));
 
-  const float xScaleFactor = (videoMode == Renderer::VideoMode::Text_80x25 ? 1 : 0.5);
+
+  const float xScaleFactors[Renderer::VideoMode::Count] = {1.0f, 0.5f};
+  // const float yScaleFactors[Renderer::VideoMode::Count] = {1.0f, 1.0f;
+
+  const float xScaleFactor = xScaleFactors[videoMode];
+  // const float yScaleFactor = yScaleFactors[videoMode];
 
   for (int i = 0; i < 16; ++i)
   {
     quad[i].texCoords.x *= (UpscaleFactor * xScaleFactor);
-    quad[i].texCoords.y *= UpscaleFactor;
+    quad[i].texCoords.y *= UpscaleFactor; //(UpscaleFactor * yScaleFactor);
 
     quad[i].position.y *= yScale;
 
@@ -444,7 +454,8 @@ void Renderer::drawScreenBufferFullScreen()
     quad[3].position = sf::Vector2f(edge, windowSize.y);
   }
 
-  const float xScaleFactor = (videoMode == Renderer::VideoMode::Text_80x25 ? 1 : 0.5);
+  const float scaleFactors[Renderer::VideoMode::Count] = {1.0f, 0.5f};
+  const float xScaleFactor = scaleFactors[videoMode];
 
   quad[0].texCoords = sf::Vector2f(0, 0);
   quad[1].texCoords = sf::Vector2f(1280 * xScaleFactor, 0);

@@ -128,6 +128,7 @@ LUNA_IMPL_PROPERTIES_NONE()
 LUNA_IMPL_BEGIN(LuaScreenBuffer)
 LUNA_IMPL_FUNCTIONS() = {
   LunaMethod(instance),
+  LunaMethod(redraw),
   LunaMethod(clear),
   LunaMethod(print),
   LunaMethod(fillRow),
@@ -320,8 +321,7 @@ bool LUAImpl::init(const char * fileName)
 
 // Implementation methods
 
-void LUAImpl::onStart()
-{
+void LUAImpl::onStart() {
   luaL_dostring(state, "start()");
 }
 

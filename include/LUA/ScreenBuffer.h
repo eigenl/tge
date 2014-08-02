@@ -43,6 +43,12 @@ namespace tge
 
     // Methods
 
+    int redraw(lua_State * L)
+    {
+      obj->requestRedraw();
+      return 0;
+    }
+
     int clear(lua_State * L)
     {
       unsigned char color = CLEAR;
@@ -272,7 +278,7 @@ namespace tge
     {
       unsigned int x = 0;
       unsigned int y = 0;
-      wchar_t c = L'?';
+      wchar_t c = L' ';
       OPTS dOpts = DisplayOptions(WHITE, CLEAR);
 
       lua_pushnil(L);

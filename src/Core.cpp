@@ -175,10 +175,11 @@ int Core::init(int argc, char* argv[])
     scriptImplementation->init(scriptName.c_str());
   }
 
+  renderer->setScreenStyle(screenStyle, false);
+
   launchGame();
 
   renderer->setWallpaper(wallpaperIndex);
-  renderer->setScreenStyle(screenStyle);
 
   return 0;
 }
@@ -376,12 +377,14 @@ void Core::toggleFullscreen()
 void Core::launchGame()
 {
   if (!renderer->getScreenBuffer()) {
-    renderer->setVideoMode(Renderer::VideoMode::Text_80x25);
+    renderer->setVideoMode(Renderer::VideoMode::Text_80x25, false);
   }
 
   if (scriptImplementation) {
     scriptImplementation->onStart();
   }
+
+  redraw();
 }
 
 void Core::redraw()

@@ -65,6 +65,9 @@ namespace tge
 
       ScreenBuffer(Core * c, sf::Vector2u _size);
 
+      // Request redraw from the game core
+      void requestRedraw();
+
       // Clears the display
       void clear(unsigned char color = CLEAR);
 

@@ -2,7 +2,8 @@
 function start()
 	-- Let's start with low-res text mode
 	Core.setVideoMode(VideoMode.Text40x25)
-	Core.setDisplayStyle(DisplayStyle.FullFit)
+	
+	-- Core.setDisplayStyle(DisplayStyle.FullFit)
 end
 
 -- Called when the screen gets a full redraw (when closing windows, etc.)
