@@ -86,7 +86,11 @@ Renderer.castRays = function ()
 			perpWallDist = math.abs((mapY - rayPosY + (1 - stepY) / 2) / rayDirY)
 		end
 		
-
+		--[[
+			local wallX = fif(side == 1, rayPosX + ((mapY - rayPosY + (1 - stepY) / 2) / rayDirY) * rayDirX, rayPosY + ((mapX - rayPosX + (1 - stepX) / 2) / rayDirX) * rayDirY)
+			wallX = (wallX - math.floor(wallX))
+		]]--
+	
 		-- Calculate height of line to draw on screen
 		local lineHeight = fif(perpWallDist == 0, 25, math.abs(math.floor(h / perpWallDist)))
 		
@@ -101,17 +105,23 @@ Renderer.castRays = function ()
 		if drawEnd >= h then drawEnd = h - 1 end
 		
 		local wallColor
+		local bottomEdgeColor
 
 		if wallHit == 1 then
 			wallColor = fif(side == 0, Color.LightRed, Color.Red)
+			bottomEdgeColor = fif(side == 0, Color.Red, Color.Black)
 		elseif wallHit == 2 then
 			wallColor = fif(side == 0, Color.LightBlue, Color.Blue)
+			bottomEdgeColor = fif(side == 0, Color.Blue, Color.Black)
 		elseif wallHit == 3 then
 			wallColor = fif(side == 0, Color.Yellow, Color.Brown)
+			bottomEdgeColor = fif(side == 0, Color.Brown, Color.Black)
 		elseif wallHit == 4 then
 			wallColor = fif(side == 0, Color.LightGreen, Color.Green)
+			bottomEdgeColor = fif(side == 0, Color.Green, Color.Black)
 		elseif wallHit == 5 then
 			wallColor = fif(side == 0, Color.LightMagenta, Color.Magenta)
+			bottomEdgeColor = fif(side == 0, Color.Magenta, Color.Black)
 		end
 		
 		for j = drawStart, drawEnd, 1 do
@@ -120,7 +130,9 @@ Renderer.castRays = function ()
 		
 		if halfBlock == true then
 			Screen.put({x = x, y = drawStart-1, value = "▄", color = wallColor, background = Map.CeilingColor})
-			Screen.put({x = x, y = drawEnd, value = "▀", color = wallColor, background = Map.FloorColor})
+			Screen.put({x = x, y = drawEnd, value = "▀", color = bottomEdgeColor, background = Map.FloorColor})
+		else
+			Screen.put({x = x, y = drawEnd, value = "▄", color = bottomEdgeColor, background = wallColor})
 		end
 	end
 	
