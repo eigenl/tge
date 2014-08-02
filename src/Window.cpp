@@ -70,8 +70,6 @@ void tge::Window::setTitle(std::wstring titleString)
 {
   title = titleString;
 
-  printf("title = %S\n", title.c_str());
-
   if (title.length() == 0)
   {
     if (titleLabel)
@@ -88,11 +86,7 @@ void tge::Window::setTitle(std::wstring titleString)
   }
 
   std::wstring paddedTitle = L" " + title + L" ";
-
   int x = (rectangle.width - paddedTitle.length()) / 2;
-
-  printf("TITLE X = %d\n", x);
-
   titleLabel = C->getUI()->createLabel(this, paddedTitle, sf::Vector2u(x, 0), displayOptions);
 
   return;

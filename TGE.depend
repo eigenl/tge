@@ -604,7 +604,7 @@
 	<math.h>
 	<sstream>
 
-1406840348 source:c:\users\eigen\gamedev\tge\src\window.cpp
+1406975673 source:c:\users\eigen\gamedev\tge\src\window.cpp
 	"Window.h"
 	"Label.h"
 	"Core.h"
@@ -1598,7 +1598,7 @@
 	<vector>
 	<cstring>
 
-1406840404 c:\users\eigen\gamedev\tge\include\lua\ui.h
+1406975689 c:\users\eigen\gamedev\tge\include\lua\ui.h
 	<UI.h>
 	<Console.h>
 	<Label.h>

@@ -156,8 +156,6 @@ namespace tge
         lua_pop(L, 1);
       }
 
-      printf("WND TITLE == %S\n", title.c_str());
-
       Window * wnd = obj->createWindow(parent, rectangle, dOpts);
 
       wnd->setShadowed(hasShadow);
